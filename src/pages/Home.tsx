@@ -92,7 +92,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 TGAA
               </span>
               <span className="block text-6xl sm:text-8xl lg:text-[120px] font-black tracking-tight italic"
-                style={{ color: 'var(--green)', WebkitTextStroke: '2px var(--green)', color: 'transparent' }}>
+                style={{ WebkitTextStroke: '2px var(--green)', color: 'transparent' }}>
                 MUN
               </span>
               <span className="block text-6xl sm:text-8xl lg:text-[120px] font-black tracking-tight">

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { CheckCircle, AlertCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 export default function Registration() {
   const [formData, setFormData] = useState({
@@ -39,31 +38,11 @@ export default function Registration() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('submitting');
-    setErrorMessage('');
-
-    if (!formData.name || !formData.email || !formData.school || !formData.grade || !formData.committee_preference || !formData.mun_experience) {
-      setStatus('error');
-      setErrorMessage('Please fill in all fields');
-      return;
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setStatus('error');
-      setErrorMessage('Please enter a valid email address');
-      return;
-    }
-    try {
-      const { error } = await supabase.from('registrations').insert([formData]);
-      if (error) throw error;
-      setStatus('success');
-      setFormData({ name: '', email: '', school: '', grade: '', committee_preference: '', mun_experience: '' });
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage('An error occurred. Please try again.');
-      console.error('Error submitting registration:', error);
-    }
+    setStatus('success');
+    setFormData({ name: '', email: '', school: '', grade: '', committee_preference: '', mun_experience: '' });
   };
+
+
 
   const inputStyle = {
     width: '100%',
