@@ -13,8 +13,8 @@ interface Committee {
 }
 
 const difficultyStyle = (d: string) => {
-  if (d === 'Beginner-Intermediate') return { color: '#4ade80', bg: 'rgba(74,222,128,0.1)', border: 'rgba(74,222,128,0.3)' };
-  if (d === 'Intermediate') return { color: '#60a5fa', bg: 'rgba(96,165,250,0.1)', border: 'rgba(96,165,250,0.3)' };
+  if (d === 'Junior') return { color: '#4ade80', bg: 'rgba(74,222,128,0.1)', border: 'rgba(74,222,128,0.3)' };
+  if (d === 'Senior') return { color: '#60a5fa', bg: 'rgba(96,165,250,0.1)', border: 'rgba(96,165,250,0.3)' };
   return { color: '#c084fc', bg: 'rgba(192,132,252,0.1)', border: 'rgba(192,132,252,0.3)' };
 };
 
@@ -29,7 +29,7 @@ export default function Committees() {
       agenda: 'Regulation of Autonomous Weapons Systems',
       description: 'Address the ethical, legal, and security implications of lethal autonomous weapons in modern warfare.',
       delegates: 60,
-      difficulty: 'Intermediate',
+      difficulty: 'Senior',
       fullDescription: 'The Disarmament and International Security Committee (DISEC) is the First Committee of the UN General Assembly. In this committee, delegates will tackle the complex issue of regulating autonomous weapons systems, examining international humanitarian law, arms control treaties, and the future of warfare. This committee requires strong research skills and the ability to balance security concerns with humanitarian principles.',
     },
     {
@@ -39,7 +39,7 @@ export default function Committees() {
       agenda: 'Preventing Escalation in the Middle East',
       description: "Navigate complex regional tensions and work toward sustainable peace in one of the world's most volatile regions.",
       delegates: 15,
-      difficulty: 'Advanced',
+      difficulty: 'Senior',
       fullDescription: 'The United Nations Security Council is the most powerful body in the UN system, responsible for maintaining international peace and security. Delegates will engage in crisis-driven debate on Middle Eastern conflicts, utilizing veto powers, working papers, and resolutions. This committee demands exceptional diplomacy, quick thinking, and deep knowledge of international relations. Limited seats available.',
     },
     {
@@ -49,7 +49,7 @@ export default function Committees() {
       agenda: 'The Cuban Missile Crisis (October 1962)',
       description: "Step into the shoes of Kennedy administration officials during the most dangerous moment of the Cold War.",
       delegates: 20,
-      difficulty: 'Advanced',
+      difficulty: 'Senior',
       fullDescription: "Experience history's most perilous thirteen days as a member of President Kennedy's Executive Committee. This fast-paced crisis committee will test your ability to make critical decisions under pressure, respond to breaking developments, and prevent nuclear war. Delegates must be prepared for continuous crisis updates, backroom negotiations, and high-stakes diplomacy.",
     },
     {
@@ -59,7 +59,7 @@ export default function Committees() {
       agenda: 'Digital Rights and Privacy in the Age of Surveillance',
       description: 'Balance national security interests with fundamental rights to privacy in an increasingly digital world.',
       delegates: 47,
-      difficulty: 'Intermediate',
+      difficulty: 'Junior',
       fullDescription: 'The UN Human Rights Council addresses critical human rights issues globally. Delegates will debate the intersection of technology, privacy, and state surveillance, examining cases from around the world. This committee explores questions of digital sovereignty, corporate responsibility, and the universal right to privacy. Strong argumentation and ethical reasoning skills are essential.',
     },
     {
@@ -69,7 +69,7 @@ export default function Committees() {
       agenda: 'Combating Plastic Pollution in Marine Ecosystems',
       description: 'Develop comprehensive strategies to address one of the most pressing environmental challenges of our time.',
       delegates: 50,
-      difficulty: 'Beginner-Intermediate',
+      difficulty: 'Junior',
       fullDescription: 'The United Nations Environment Programme leads global environmental action. Delegates will craft innovative solutions to the plastic pollution crisis, examining production, consumption, waste management, and international cooperation. This committee is ideal for delegates interested in environmental policy, sustainable development, and multilateral cooperation. First-time delegates are welcome.',
     },
     {
@@ -79,7 +79,7 @@ export default function Committees() {
       agenda: 'Strengthening Global Pandemic Preparedness',
       description: 'Learn from recent global health crises to build more resilient international health systems.',
       delegates: 55,
-      difficulty: 'Intermediate',
+      difficulty: 'Senior',
       fullDescription: 'The World Health Organization coordinates international health initiatives and emergency responses. Drawing lessons from COVID-19 and other pandemics, delegates will develop frameworks for early detection, rapid response, vaccine equity, and international coordination. This committee combines public health policy, economics, and diplomacy.',
     },
   ];
