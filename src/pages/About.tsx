@@ -63,10 +63,10 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { val: '300+', label: 'Delegates', color: 'var(--green)' },
-                { val: '6', label: 'Committees', color: '#4a9eff' },
-                { val: '50+', label: 'Schools', color: '#b46fff' },
-                { val: '3', label: 'Days', color: '#ff8c4a' },
+                { val: '100+', label: 'Delegates', color: 'var(--green)' },
+                { val: '5', label: 'Committees', color: '#4a9eff' },
+                { val: 'Multiple', label: 'Schools', color: '#b46fff' },
+                { val: '2', label: 'Days', color: '#ff8c4a' },
               ].map(({ val, label, color }) => (
                 <div
                   key={label}
@@ -95,7 +95,7 @@ export default function About() {
               {
                 Icon: Eye,
                 title: 'Our Vision',
-                text: 'To be recognised as the premier Model United Nations conference that sets the gold standard for educational excellence, diplomatic simulation, and youth empowerment. We envision a world where young leaders emerge from our conference equipped with the skills and networks to make meaningful contributions to global peace.',
+                text: "In a world that demands voices, we build platforms. TGAAMUN invites individuals who disrupt norms, defy limits, and design futures. Through debate, diplomacy, and daring ideas, we call on delegates to step into the shoes of changemakers past, present, and future. But it is not just about talking the talk,  our participants step into the shoes of diplomats, engage in discussions that matter, and debate pressing global issues with the kind of enthusiasm that could rival a high-stakes negotiation. Whether you're a seasoned MUN veteran or a first-timer, we promise there is always something new to learn, someone new to meet, and a whole lot of exciting moments along the way.",
               },
             ].map(({ Icon, title, text }) => (
               <div

@@ -150,10 +150,10 @@ export default function Home({ onNavigate }: HomeProps) {
   }, []);
 
   const highlights = [
-    { icon: Calendar, label: 'Conference Dates', value: 'July 15-17, 2026' },
-    { icon: MapPin, label: 'Location', value: 'Convention Center, City' },
-    { icon: Users, label: 'Expected Delegates', value: '300+' },
-    { icon: Award, label: 'Committees', value: '6 Unique Councils' },
+    { icon: Calendar, label: 'Conference Dates', value: 'Jul 30-Aug 1, 2026' },
+    { icon: MapPin, label: 'Location', value: 'The Green Acres Academy, Chembur' },
+    { icon: Users, label: 'Expected Delegates', value: '100+' },
+    { icon: Award, label: 'Committees', value: '5 Committees' },
   ];
 
   const testimonials = [
@@ -204,8 +204,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className="max-w-xl mb-12">
               <div className="h-px mb-6" style={{ background: 'rgba(31,158,92,0.3)' }} />
               <p className="text-lg font-light leading-relaxed" style={{ color: 'var(--muted)' }}>
-                Where future diplomats debate the world's most pressing challenges.
-                Student-run. Student-led. Exceptionally executed.
+              Metamorphosis : Redefining global narratives 
               </p>
             </div>
             <div className="flex flex-wrap gap-4 mb-16">
@@ -330,10 +329,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { val: '300+', label: 'Delegates', color: 'var(--green)' },
-                { val: '6', label: 'Committees', color: '#4a9eff' },
-                { val: '50+', label: 'Schools', color: '#b46fff' },
-                { val: '3', label: 'Days', color: '#ff8c4a' },
+                { val: '100+', label: 'Delegates', color: 'var(--green)' },
+                { val: '5', label: 'Committees', color: '#4a9eff' },
+                { val: 'Multiple', label: 'Schools', color: '#b46fff' },
+                { val: '2', label: 'Days', color: '#ff8c4a' },
               ].map(({ val, label, color }) => (
                 <div key={label} className="p-8 clip-corner" style={{ background: 'var(--navy-card)', border: '1px solid rgba(255,255,255,0.06)' }}>
                   <p className="font-display font-black text-5xl mb-2" style={{ color }}>{val}</p>

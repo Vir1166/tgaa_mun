@@ -11,59 +11,94 @@ interface TeamMember {
 export default function Secretariat() {
   const team: TeamMember[] = [
     {
-      name: 'Alexandra Chen',
+      name: 'Samaira Pimple',
       role: 'Secretary-General',
       bio: 'A passionate advocate for international cooperation with 4 years of MUN experience. Alexandra has represented her school at HMUN, UPMUNC, and numerous regional conferences.',
       email: 'sg@tgaamun.org',
       category: 'leadership',
     },
     {
-      name: 'Marcus Williams',
-      role: 'Director-General',
+      name: 'Oas Maheshwari',
+      role: 'Secretary-General',
       bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences. Marcus brings expertise in crisis management and committee operations.',
       email: 'dg@tgaamun.org',
       category: 'leadership',
     },
     {
-      name: 'Priya Sharma',
-      role: 'USG for Delegate Affairs',
-      bio: 'Committed to ensuring every delegate has an exceptional conference experience. Priya oversees registration, delegate services, and hospitality.',
+      name: 'Liana Matthew',
+      role: 'Secretary-General',
+      bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences. Marcus brings expertise in crisis management and committee operations.',
+      email: 'dg@tgaamun.org',
+      category: 'leadership',
+    },
+    {
+      name: 'Vir Hariharan',
+      role: 'Head of Delegate Affairs',
+      bio: 'These are placeholder descriptions.',
       email: 'delegates@tgaamun.org',
       category: 'usg',
     },
     {
-      name: 'James Patterson',
-      role: 'USG for Crisis & Specialized Committees',
+      name: 'Dishant Mehta',
+      role: 'Head of Delegate affairs',
       bio: 'An experienced crisis director known for creating immersive and dynamic committee experiences. James specialises in historical simulations.',
       email: 'crisis@tgaamun.org',
       category: 'usg',
     },
     {
-      name: 'Sofia Rodriguez',
-      role: 'USG for General Assemblies',
+      name: 'Prarthana Krishnan',
+      role: 'Head of Delegate Affairs',
       bio: 'Expert in parliamentary procedure and GA operations. Sofia ensures smooth committee sessions and maintains the highest standards of debate.',
       email: 'ga@tgaamun.org',
       category: 'usg',
     },
     {
-      name: 'David Kim',
-      role: 'USG for Logistics & Operations',
+      name: 'Ved Hariharan',
+      role: 'Head of Logistics & Operations',
       bio: 'Master of organisation and planning. David coordinates venue management, technology, and all operational aspects of the conference.',
       email: 'logistics@tgaamun.org',
       category: 'usg',
     },
     {
-      name: 'Emma Thompson',
-      role: 'USG for Communications & Outreach',
+      name: 'Madhav T',
+      role: 'Head of IPC',
       bio: 'Creative storyteller and social media strategist. Emma manages all external communications, marketing, and delegate outreach.',
       email: 'communications@tgaamun.org',
       category: 'usg',
     },
     {
-      name: 'Ahmed Hassan',
-      role: 'USG for Finance',
+      name: 'Deetya Gupta',
+      role: 'Head of IPC',
       bio: "Detail-oriented financial planner ensuring the conference's fiscal sustainability. Ahmed manages budgets, sponsorships, and financial operations.",
       email: 'finance@tgaamun.org',
+      category: 'usg',
+    },
+    {
+      name: 'Maghi Patil',
+      role: 'Head of Design & Layout',
+      bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences. Marcus brings expertise in crisis management and committee operations.',
+      email: 'dg@tgaamun.org',
+      category: 'usg',
+    },
+    {
+      name: 'Teesha Paul',
+      role: 'Head of Design & Layout',
+      bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences. Marcus brings expertise in crisis management and committee operations.',
+      email: 'dg@tgaamun.org',
+      category: 'usg',
+    },
+    {
+      name: 'Alisha Gaikwad',
+      role: 'Head of PR',
+      bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences. Marcus brings expertise in crisis management and committee operations.',
+      email: 'dg@tgaamun.org',
+      category: 'usg',
+    },
+    {
+      name: 'Aanya Vaishya',
+      role: 'Head of PR',
+      bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences. Marcus brings expertise in crisis management and committee operations.',
+      email: 'dg@tgaamun.org',
       category: 'usg',
     },
   ];
@@ -104,7 +139,7 @@ export default function Secretariat() {
             <div className="h-px flex-1" style={{ background: 'rgba(31,158,92,0.2)' }} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 gap-6 max-w-5xl mx-auto">
             {leadership.map((member, i) => (
               <div
                 key={i}
@@ -115,17 +150,17 @@ export default function Secretariat() {
                 }}
               >
                 <div className="h-1" style={{ background: 'var(--green)' }} />
-                <div className="p-8">
+                <div className="p-5">
                   {/* Avatar */}
                   <div className="flex items-center gap-4 mb-6">
                     <div
-                      className="w-16 h-16 clip-corner flex items-center justify-center font-display font-bold text-xl"
+                      className="w-12 h-12 clip-corner flex items-center justify-center font-display font-bold text-xl"
                       style={{ background: 'var(--green)', color: 'white' }}
                     >
                       {initials(member.name)}
                     </div>
                     <div>
-                      <h3 className="font-display font-bold text-xl" style={{ color: 'var(--cream)' }}>{member.name}</h3>
+                      <h3 className="font-display font-bold text-lg" style={{ color: 'var(--cream)' }}>{member.name}</h3>
                       <p className="tag-label mt-0.5" style={{ color: 'var(--green)' }}>{member.role}</p>
                     </div>
                   </div>
@@ -154,7 +189,7 @@ export default function Secretariat() {
       </section>
 
       {/* ── USGs ── */}
-      <section className="py-24" style={{ background: 'var(--navy)' }}>
+      <section className="py-16" style={{ background: 'var(--navy)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-6 mb-16">
             <div className="h-px flex-1" style={{ background: 'rgba(31,158,92,0.2)' }} />
