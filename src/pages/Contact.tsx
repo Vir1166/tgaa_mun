@@ -1,12 +1,24 @@
-import { Mail, MapPin, Phone, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, MapPin, Phone, Instagram } from 'lucide-react';
 
 export default function Contact() {
 
-  const contactInfo = [
-    { icon: Mail, title: 'Email', value: 'tgaamun@chembur.tgaa.in', link: 'https://mail.google.com/mail/?view=cm&fs=1&to=tgaamun@chembur.tgaa.in' },
-    { icon: Phone, title: 'Phone', value: '+1 (555) 123-4567', link: 'tel:+15551234567' },
-    { icon: MapPin, title: 'Location', value: 'TGAA - Chembur', link: 'https://www.google.com/maps/place/The+Green+Acres+Academy+Chembur' },
+  const phoneNumbers = [
+    "+91 88508 53711",
+    "+91 98206 06900",
+    "+91 99879 08191"
   ];
+
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const copyPhone = (index: number) => {
+    navigator.clipboard.writeText(phoneNumbers[index]);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 1500);
+  };
+
+  const getBg = (i: number) =>
+    copiedIndex === i ? 'var(--navy-mid)' : 'var(--green-dark)';
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy)' }}>
@@ -26,53 +38,97 @@ export default function Contact() {
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-4 space-y-10">
 
-          {/* 2x3 GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[90px]">
 
-            {/* Contact cards */}
-            {contactInfo.map((item, i) => (
-              <a
-                key={i}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-full flex items-center gap-4 p-5 clip-corner"
-                style={{ background: 'var(--navy-card)' }}
-              >
-                <item.icon size={18} />
-                <div>
-                  <p className="text-xs" style={{ color: 'var(--muted)' }}>{item.title}</p>
-                  <p className="text-sm" style={{ color: 'var(--cream)' }}>{item.value}</p>
-                </div>
-              </a>
-            ))}
+            {/* Email */}
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=tgaamun@chembur.tgaa.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-full flex items-center gap-4 p-5 clip-corner"
+              style={{ background: 'var(--green-dark)' }}
+            >
+              <Mail size={18} />
+              <div>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Email</p>
+                <p className="text-sm" style={{ color: 'var(--cream)' }}>tgaamun@chembur.tgaa.in</p>
+              </div>
+            </a>
 
-            {/* Social card */}
-            <div className="h-full flex flex-col justify-center p-5 clip-corner" style={{ background: 'var(--green-dark)' }}>
-              <h3 className="text-white text-sm mb-3">Connect</h3>
-              <div className="flex gap-2">
-                {[
-                  { icon: Instagram, link: "https://www.instagram.com/tgaamunofficial/" },
-                  { icon: Twitter, link: "https://twitter.com/yourpage" },
-                  { icon: Linkedin, link: "https://linkedin.com/company/yourpage" },
-                ].map((item, i) => (
-                  <a
-                    key={i}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 flex items-center justify-center"
-                    style={{ background: 'rgba(255,255,255,0.15)', color: 'white' }}
-                  >
-                    <item.icon size={14} />
-                  </a>
-                ))}
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/tgaamunofficial/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-full flex items-center gap-4 p-5 clip-corner"
+              style={{ background: 'var(--green-dark)' }}
+            >
+              <Instagram size={18} />
+              <div>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Instagram</p>
+                <p className="text-sm" style={{ color: 'var(--cream)' }}>@tgaamunofficial</p>
+              </div>
+            </a>
+
+            {/* Location */}
+            <a
+              href="google.com/maps/place/The+Green+Acres+Academy+Chembur+-+ICSE/@19.0537217,72.9106199,15z/data=!4m6!3m5!1s0x3be7c8a5fb1529ab:0x34207da999c81191!8m2!3d19.0526597!4d72.8925128!16s%2Fg%2F11bwfkmwrr?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-full flex items-center gap-4 p-5 clip-corner"
+              style={{ background: 'var(--green-dark)' }}
+            >
+              <MapPin size={18} />
+              <div>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Location</p>
+                <p className="text-sm" style={{ color: 'var(--cream)' }}>TGAA - Chembur</p>
+              </div>
+            </a>
+
+            {/* Phone 1 */}
+            <div
+              onClick={() => copyPhone(0)}
+              className="h-full flex items-center gap-4 p-5 clip-corner cursor-pointer transition-colors duration-300"
+              style={{ background: getBg(0) }}
+            >
+              <Phone size={18} />
+              <div>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Samaira Pimple —— Secretary General</p>
+                <p className="text-sm" style={{ color: 'var(--cream)' }}>
+                  {copiedIndex === 0 ? "Copied to clipboard" : phoneNumbers[0]}
+                </p>
               </div>
             </div>
 
-            {/* Empty blocks */}
-            <div className="h-full p-5 clip-corner" style={{ background: 'var(--navy-card)' }} />
-            <div className="h-full p-5 clip-corner" style={{ background: 'var(--navy-card)' }} />
+            {/* Phone 2 */}
+            <div
+              onClick={() => copyPhone(1)}
+              className="h-full flex items-center gap-4 p-5 clip-corner cursor-pointer transition-colors duration-300"
+              style={{ background: getBg(1) }}
+            >
+              <Phone size={18} />
+              <div>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Oas Maheshwari —— Deputy Secretary</p>
+                <p className="text-sm" style={{ color: 'var(--cream)' }}>
+                  {copiedIndex === 1 ? "Copied to clipboard" : phoneNumbers[1]}
+                </p>
+              </div>
+            </div>
+
+            {/* Phone 3 */}
+            <div
+              onClick={() => copyPhone(2)}
+              className="h-full flex items-center gap-4 p-5 clip-corner cursor-pointer transition-colors duration-300"
+              style={{ background: getBg(2) }}
+            >
+              <Phone size={18} />
+              <div>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Liana Matthew —— Director General</p>
+                <p className="text-sm" style={{ color: 'var(--cream)' }}>
+                  {copiedIndex === 2 ? "Copied to clipboard" : phoneNumbers[2]}
+                </p>
+              </div>
+            </div>
 
           </div>
 

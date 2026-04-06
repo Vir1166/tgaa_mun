@@ -1,4 +1,4 @@
-import { Mail, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -39,7 +39,7 @@ export default function Footer() {
                 Conference Dates
               </p>
               <p className="font-display font-bold text-lg" style={{ color: 'var(--green)' }}>
-                July 15–17, 2026
+                July 31 - Aug 1
               </p>
             </div>
           </div>
@@ -49,27 +49,10 @@ export default function Footer() {
             <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>Connect</p>
 
             <div className="flex md:justify-end gap-3 mb-6">
-              {[
-                { Icon: Instagram, label: 'Instagram' },
-                { Icon: Twitter, label: 'Twitter' },
-                { Icon: Linkedin, label: 'LinkedIn' },
-              ].map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  className="w-10 h-10 flex items-center justify-center clip-corner transition-all hover:opacity-80"
-                  style={{
-                    background: 'rgba(31,158,92,0.1)',
-                    border: '1px solid rgba(31,158,92,0.3)',
-                    color: 'var(--green)',
-                  }}
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
-
               <a
-                href="mailto:info@tgaamun.org"
+                href="https://www.instagram.com/tgaamunofficial/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center clip-corner transition-all hover:opacity-80"
                 style={{
                   background: 'rgba(31,158,92,0.1)',
@@ -77,7 +60,7 @@ export default function Footer() {
                   color: 'var(--green)',
                 }}
               >
-                <Mail size={16} />
+                <Instagram size={16} />
               </a>
             </div>
 
