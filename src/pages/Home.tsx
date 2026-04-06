@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 function UNLogoPattern() {
-  // Grid: cols x rows evenly spaced, each with a small unique rotation
   const cols = 6;
   const rows = 4;
   const rotations = [
@@ -129,13 +128,43 @@ interface HomeProps {
   onNavigate: (page: string) => void;
 }
 
+// ─── Conference phase helper ───────────────────────────────────────────────
+type ConferencePhase =
+  | 'countdown'
+  | 'day1-live'
+  | 'day1-concluded'
+  | 'day2-live'
+  | 'concluded';
+
+  function getConferencePhase(now: Date): ConferencePhase {
+    const day1Start = new Date('2026-07-31T07:00:00+05:30');
+const day1End   = new Date('2026-07-31T18:00:00+05:30');
+const day2Start = new Date('2026-08-01T07:00:00+05:30');
+const day2End   = new Date('2026-08-01T18:00:00+05:30');
+  
+    if (now < day1Start) return 'countdown';
+    if (now < day1End)   return 'day1-live';
+    if (now < day2Start) return 'day1-concluded';
+    if (now < day2End)   return 'day2-live';
+    return 'concluded';
+  }
+
+function isLive(phase: ConferencePhase): boolean {
+  return phase === 'day1-live' || phase === 'day2-live';
+}
+// ──────────────────────────────────────────────────────────────────────────
+
 export default function Home({ onNavigate }: HomeProps) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [phase, setPhase] = useState<ConferencePhase>(() => getConferencePhase(new Date()));
 
   useEffect(() => {
-    const conferenceDate = new Date('2026-07-15T09:00:00');
+    const conferenceDate = new Date('2026-07-31T07:00:00+05:30');
+
     const timer = setInterval(() => {
       const now = new Date();
+      setPhase(getConferencePhase(now));
+
       const difference = conferenceDate.getTime() - now.getTime();
       if (difference > 0) {
         setTimeLeft({
@@ -146,6 +175,7 @@ export default function Home({ onNavigate }: HomeProps) {
         });
       }
     }, 1000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -174,6 +204,18 @@ export default function Home({ onNavigate }: HomeProps) {
     },
   ];
 
+  // ── Phase-specific content ──────────────────────────────────────────────
+  const phaseContent: Record<ConferencePhase, { heading: string; sub: string }> = {
+    'countdown':      { heading: 'Conference Begins In',         sub: '' },
+    'day1-live':      { heading: 'Day 1 is Live',                sub: 'Committee sessions are underway. Follow along!' },
+    'day1-concluded': { heading: 'Day 1 Concluded.',             sub: 'Get ready for Day 2!' },
+    'day2-live':      { heading: 'Day 2 is Live',                sub: "It's the final day — let's make history!" },
+    'concluded':      { heading: 'Conference Concluded',         sub: 'Thank you to every delegate, chair, and organiser. See you next year.' },
+  };
+
+  const { heading, sub } = phaseContent[phase];
+  // ───────────────────────────────────────────────────────────────────────
+
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy)' }}>
 
@@ -190,8 +232,29 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--green)', boxShadow: '0 0 8px var(--green)' }} />
-              <span className="tag-label" style={{ color: 'var(--green)' }}>Registration Open · July 31 - Aug 1, 2026</span>
+              {/* Show LIVE badge during conference, otherwise registration open */}
+              {isLive(phase) ? (
+                <>
+                  <span
+                    className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest"
+                    style={{ background: 'rgba(220,38,38,0.15)', border: '1px solid rgba(220,38,38,0.4)', color: '#ef4444', fontFamily: 'DM Mono, monospace' }}
+                  >
+                    <span
+                      className="w-2 h-2 rounded-full animate-pulse"
+                      style={{ background: '#ef4444', boxShadow: '0 0 8px #ef4444' }}
+                    />
+                    LIVE
+                  </span>
+                  <span className="tag-label" style={{ color: 'var(--muted)' }}>
+                    {phase === 'day1-live' ? 'Day 1 · July 31, 2026' : 'Day 2 · August 1, 2026'}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--green)', boxShadow: '0 0 8px var(--green)' }} />
+                  <span className="tag-label" style={{ color: 'var(--green)' }}>Registration Open · July 31 - Aug 1, 2026</span>
+                </>
+              )}
             </div>
             <div className="mb-6">
               <h1 className="font-display leading-none" style={{ color: 'var(--cream)' }}>
@@ -231,7 +294,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* COUNTDOWN */}
+      {/* COUNTDOWN / CONFERENCE STATE */}
       <section className="relative overflow-hidden" style={{ background: 'var(--navy-mid)' }}>
         <UNLogoPattern />
         <div className="absolute inset-0 pointer-events-none" style={{
@@ -239,50 +302,119 @@ export default function Home({ onNavigate }: HomeProps) {
         }} />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <p className="tag-label mb-3" style={{ color: 'var(--green)' }}>TGAA MUN 2026 · July 31 - Aug 1</p>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl mb-3" style={{ color: 'var(--cream)' }}>
-              Conference Begins In
-            </h2>
-            <div className="w-16 h-px mx-auto" style={{ background: 'var(--green)' }} />
-          </div>
 
-          {/* Countdown tiles */}
-          <div className="flex justify-center items-end gap-2 sm:gap-8">
-            {Object.entries(timeLeft).map(([unit, value], i) => (
-              <div key={unit} className="flex items-end gap-2 sm:gap-8">
-                <div className="text-center">
-                  {/* Circle */}
-                  <div
-                    className="w-28 h-28 sm:w-44 sm:h-44 rounded-full flex items-center justify-center font-display font-bold relative"
-                    style={{
-                      background: 'linear-gradient(145deg, rgba(31,158,92,0.12) 0%, rgba(13,17,23,0.98) 70%)',
-                      border: '2px solid rgba(31,158,92,0.35)',
-                      color: 'var(--cream)',
-                      fontSize: 'clamp(2rem, 4vw, 4rem)',
-                      letterSpacing: '-0.02em',
-                      boxShadow: '0 0 0 6px rgba(31,158,92,0.06), 0 8px 32px rgba(0,0,0,0.4)',
-                    }}
-                  >
-                    {/* Inner ring */}
-                    <div className="absolute inset-2 rounded-full pointer-events-none" style={{
-                      border: '1px solid rgba(31,158,92,0.1)',
-                    }} />
-                    {String(value).padStart(2, '0')}
-                  </div>
-                  <p className="tag-label mt-4" style={{ color: 'var(--green)' }}>{unit}</p>
+          {/* Header — always the same structural layout */}
+          {/* Header — always the same structural layout */}
+<div className="text-center mb-16">
+  <div className="flex items-center justify-center gap-3 mb-3">
+    {/* LIVE badge in countdown section */}
+    {isLive(phase) && (
+      <span
+        className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest"
+        style={{ background: 'rgba(220,38,38,0.15)', border: '1px solid rgba(220,38,38,0.4)', color: '#ef4444', fontFamily: 'DM Mono, monospace' }}
+      >
+        <span
+          className="w-2 h-2 rounded-full animate-pulse"
+          style={{ background: '#ef4444', boxShadow: '0 0 8px #ef4444' }}
+        />
+        LIVE
+      </span>
+    )}
+    <p className="tag-label" style={{ color: 'var(--green)' }}>TGAA MUN 2026 · July 31 - Aug 1</p>
+  </div>
+
+  {phase === 'countdown' && (
+    <>
+      <h2 className="font-display font-bold text-4xl sm:text-5xl mb-3" style={{ color: 'var(--cream)' }}>
+        {heading}
+      </h2>
+      <div className="w-16 h-px mx-auto" style={{ background: 'var(--green)' }} />
+    </>
+  )}
+</div>
+
+          {/* ── Countdown tiles (only before conference) ── */}
+          {phase === 'countdown' && (
+            <>
+              <div className="flex justify-center">
+                <div className="flex flex-wrap justify-center gap-6">
+                  {Object.entries(timeLeft).map(([unit, value]) => (
+                    <div key={unit} className="text-center">
+                      <div
+                        className="relative w-24 sm:w-32 md:w-36 h-28 sm:h-36 md:h-40 rounded-xl flex flex-col items-center justify-center overflow-hidden group"
+                        style={{
+                          background: 'linear-gradient(145deg, #0c141c, #0a1118)',
+                          border: '1px solid rgba(31,158,92,0.25)',
+                          boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+                        }}
+                      >
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300"
+                          style={{ background: 'radial-gradient(circle at 50% 30%, rgba(31,158,92,0.15), transparent 70%)' }}
+                        />
+                        <span
+                          key={value}
+                          className="font-display font-black tracking-tight animate-pop"
+                          style={{ color: 'var(--cream)', fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+                        >
+                          {String(value).padStart(2, '0')}
+                        </span>
+                        <p className="tag-label mt-2" style={{ color: 'var(--green)' }}>{unit}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                {i < 3 && (
-                  <p className="font-display font-bold text-4xl sm:text-6xl mb-16 sm:mb-20" style={{ color: 'rgba(31,158,92,0.35)' }}>:</p>
+              </div>
+              <p className="text-center mt-10 text-sm" style={{ color: 'var(--muted)' }}>
+                Registration closes <span style={{ color: 'var(--cream)' }}>June 1, 2026</span>
+              </p>
+            </>
+          )}
+
+          {/* ── Live / between-days / concluded card ── */}
+          {phase !== 'countdown' && (
+            <div className="flex justify-center">
+              <div
+                className="w-full max-w-2xl rounded-xl flex flex-col items-center justify-center py-16 px-8 text-center"
+                style={{
+                  background: 'linear-gradient(145deg, #0c141c, #0a1118)',
+                  border: `1px solid ${isLive(phase) ? 'rgba(220,38,38,0.35)' : 'rgba(31,158,92,0.25)'}`,
+                  boxShadow: isLive(phase)
+                    ? '0 10px 40px rgba(220,38,38,0.12)'
+                    : '0 10px 30px rgba(0,0,0,0.5)',
+                }}
+              >
+                {/* Large icon / emoji */}
+                <div className="text-6xl mb-6 select-none">
+                  {phase === 'day1-live'      && '🌐'}
+                  {phase === 'day1-concluded' && '🌙'}
+                  {phase === 'day2-live'      && '🌐'}
+                  {phase === 'concluded'      && '🏛️'}
+                </div>
+
+                <h3
+                  className="font-display font-black text-4xl sm:text-5xl mb-4 leading-tight"
+                  style={{ color: isLive(phase) ? '#ef4444' : 'var(--cream)' }}
+                >
+                  {heading}
+                </h3>
+
+                {sub && (
+                  <p className="text-lg" style={{ color: 'var(--muted)' }}>{sub}</p>
+                )}
+
+                {isLive(phase) && (
+                  <div className="mt-8 flex items-center gap-2 px-5 py-2 rounded-full"
+                    style={{ background: 'rgba(220,38,38,0.12)', border: '1px solid rgba(220,38,38,0.3)' }}>
+                    <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#ef4444', boxShadow: '0 0 8px #ef4444' }} />
+                    <span className="text-xs font-bold tracking-widest" style={{ color: '#ef4444', fontFamily: 'DM Mono, monospace' }}>
+                      LIVE NOW
+                    </span>
+                  </div>
                 )}
               </div>
-            ))}
-          </div>
+            </div>
+          )}
 
-          <p className="text-center mt-10 text-sm" style={{ color: 'var(--muted)' }}>
-            Registration closes <span style={{ color: 'var(--cream)' }}>June 1, 2026</span>
-          </p>
         </div>
       </section>
 
@@ -402,6 +534,14 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
+      <style jsx>{`
+        @keyframes pop {
+          0%   { transform: translateY(10px) scale(0.9); opacity: 0; }
+          50%  { transform: translateY(-4px) scale(1.05); }
+          100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        .animate-pop { animation: pop 0.35s ease; }
+      `}</style>
     </div>
   );
 }
