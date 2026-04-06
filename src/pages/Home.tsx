@@ -191,7 +191,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--green)', boxShadow: '0 0 8px var(--green)' }} />
-              <span className="tag-label" style={{ color: 'var(--green)' }}>Registration Open · July 15–17, 2026</span>
+              <span className="tag-label" style={{ color: 'var(--green)' }}>Registration Open · July 31 - Aug 1, 2026</span>
             </div>
             <div className="mb-6">
               <h1 className="font-display leading-none" style={{ color: 'var(--cream)' }}>
@@ -241,7 +241,7 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="tag-label mb-3" style={{ color: 'var(--green)' }}>TGAA MUN 2026 · July 15–17</p>
+            <p className="tag-label mb-3" style={{ color: 'var(--green)' }}>TGAA MUN 2026 · July 31 - Aug 1</p>
             <h2 className="font-display font-bold text-4xl sm:text-5xl mb-3" style={{ color: 'var(--cream)' }}>
               Conference Begins In
             </h2>
