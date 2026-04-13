@@ -23,17 +23,55 @@ export default function Contact() {
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy)' }}>
 
-      {/* HEADER */}
-      <section className="pt-32 pb-20 hero-grid-bg">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>We're Here to Help</p>
-          <h1 className="font-display font-black text-6xl sm:text-8xl mb-8" style={{ color: 'var(--cream)' }}>
-            Get in<br />
-            <span className="italic" style={{ color: 'var(--green)' }}>Touch</span>
-          </h1>
-        </div>
-      </section>
+      {/* ── HEADER ── */}
+<section
+  className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
+  style={{
+    backgroundImage: `url("/other_pics/MUN.png")`, // paste image here
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+>
+  {/* Overlay */}
+  <div
+    className="absolute inset-0"
+    style={{ background: 'rgba(10, 15, 30, 0.7)' }}
+  />
 
+  <div
+    className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
+    style={{
+      background: 'radial-gradient(circle, var(--green) 0%, transparent 70%)',
+      transform: 'translate(30%, -30%)',
+    }}
+  />
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
+      TGAA MUN 2026
+    </p>
+    <h1
+      className="font-display font-black text-6xl sm:text-8xl leading-none mb-8"
+      style={{ color: 'var(--cream)' }}
+    >
+      Get in<br />
+      <span className="italic" style={{ color: 'var(--green)' }}>
+        Touch
+      </span>
+    </h1>
+    <div
+      className="h-px max-w-sm mb-6"
+      style={{ background: 'rgba(31,158,92,0.4)' }}
+    />
+    <p
+      className="text-lg max-w-2xl leading-relaxed"
+      style={{ color: 'var(--muted)' }}
+    >
+      We're always here to help. Feel free to reach out anytime!
+    </p>
+  </div>
+</section>
       {/* GRID + MAP */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-4 space-y-10">
