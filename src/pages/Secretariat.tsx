@@ -155,11 +155,11 @@ export default function Secretariat() {
 
   const publicRelations: TeamMember[] = [
     {
-      name: 'Alisha Gaikwad',
+      name: 'Shivakshi Kutty',
       role: 'Head of PR',
       bio: 'Handles outreach and communications.',
       email: 'dg@tgaamun.org',
-      image: '/secretariat/Alisha.jpeg',
+      image: '/secretariat/Shivakshi.jpeg',
     },
     {
       name: 'Aanya Vaishya',
@@ -188,6 +188,13 @@ export default function Secretariat() {
   ];
 
   const designLayout: TeamMember[] = [
+    {
+      name: 'Alisha Gaikwad',
+      role: 'Head of PR',
+      bio: 'Handles outreach and communications.',
+      email: 'dg@tgaamun.org',
+      image: '/secretariat/Alisha.jpeg',
+    },
     {
       name: 'Maghi Patil',
       role: 'Head of Design & Layout',
