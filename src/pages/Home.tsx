@@ -101,7 +101,11 @@ function ScrollIntro() {
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setReady(true));
-    return () => cancelAnimationFrame(id);
+    return () => {
+      cancelAnimationFrame(id);
+      // If the user navigates away before finishing, don't show the intro again.
+      introAlreadyPlayed = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -760,14 +764,14 @@ export default function Home({ onNavigate }: HomeProps) {
     },
     {
       quote:
-        'TGAAMUN was a whirlwind of deliberations, but there was much more to it. We had lively MOEs, a photobooth, and an amazing dance party that unburdened the delegates from having to be the best one out there. It was gruelling at times, but that\'s where we all really shone. ',
-      author: 'Anaysha Naren',
+        'In my first experience as a delegate to the TGAA MUN last year, the event was challenging but exciting for me. At first, I was intimidated, but soon I got used to the process. Being involved in debates, negotiations, and collaborations allowed me to gain confidence in my ability to communicate effectively.',
+      author: 'Dishant Mehta',
       role: 'Delegate, HCCC 2025',
     },
     {
       quote:
-        'In my first experience as a delegate to the TGAA MUN last year, the event was challenging but exciting for me. At first, I was intimidated, but soon I got used to the process. Being involved in debates, negotiations, and collaborations allowed me to gain confidence in my ability to communicate effectively.',
-      author: 'Dishant Mehta',
+        'TGAAMUN was a whirlwind of deliberations, but there was much more to it. We had lively MOEs, a photobooth, and an amazing dance party that unburdened the delegates from having to be the best one out there. It was gruelling at times, but that\'s where we all really shone. ',
+      author: 'Anaysha Naren',
       role: 'Delegate, HCCC 2025',
     },
   ];
@@ -1271,7 +1275,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <span className="italic">history?</span>
           </h2>
           <p className="text-lg mb-10 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Join 100+ delegates from Various schools. Two days. Five committees. One extraordinary conference.
+            Join 100+ delegates from various schools. Two days. Five committees. One extraordinary conference.
           </p>
           <button
             onClick={() => onNavigate('register')}
