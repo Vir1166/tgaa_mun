@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -43,20 +45,25 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          
           {/* Logo */}
           <div
             className="flex-shrink-0 cursor-pointer flex items-center gap-3"
             onClick={() => handleNavigate('home')}
           >
-            <div
-              className="w-8 h-8 flex items-center justify-center clip-corner"
-              style={{ background: 'var(--green)' }}
+            <img
+              src="/other_pics/logo.png"  // ← CHANGE THIS to your actual file name
+              alt="TGAA MUN Logo"
+              className="h-9 w-auto object-contain"
+            />
+
+            <span
+              className="font-display font-bold text-lg tracking-tight"
+              style={{ color: 'var(--cream)' }}
             >
-              <span className="font-display text-white font-bold text-xs leading-none">T</span>
-            </div>
-            <span className="font-display font-bold text-lg tracking-tight" style={{ color: 'var(--cream)' }}>
               TGAA <span style={{ color: 'var(--green)' }}>MUN</span>
             </span>
+
             <span
               className="hidden sm:block tag-label px-2 py-0.5 rounded"
               style={{
@@ -87,12 +94,15 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                     style={{ background: 'var(--green)' }}
                   />
                 )}
-                <span className="group-hover:text-white transition-colors"
-                  style={{ color: currentPage === item.id ? 'var(--green)' : undefined }}>
+                <span
+                  className="group-hover:text-white transition-colors"
+                  style={{ color: currentPage === item.id ? 'var(--green)' : undefined }}
+                >
                   {item.name}
                 </span>
               </button>
             ))}
+
             <button
               onClick={() => handleNavigate('register')}
               className="ml-4 px-5 py-2 text-sm font-semibold clip-corner transition-all hover:opacity-90"
@@ -142,6 +152,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 {item.name}
               </button>
             ))}
+
             <button
               onClick={() => handleNavigate('register')}
               className="w-full mt-2 px-4 py-3 text-sm font-semibold clip-corner"

@@ -80,7 +80,7 @@ export default function Committees() {
 <section
   className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
   style={{
-    backgroundImage: `url("/other_pics/MUN.png")`, // paste image here
+    backgroundImage: `url("/other_pics/Committees.jpg")`, // paste image here
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

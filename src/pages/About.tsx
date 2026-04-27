@@ -14,7 +14,7 @@ export default function About() {
 <section
   className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
   style={{
-    backgroundImage: `url("/other_pics/MUN.png")`, // ← paste your MUN image src here
+    backgroundImage: `url("/other_pics/About.jpeg")`, // ← paste your MUN image src here
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

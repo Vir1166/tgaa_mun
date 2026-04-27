@@ -211,7 +211,7 @@ export default function Secretariat() {
 <section
   className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
   style={{
-    backgroundImage: `url("/other_pics/MUN.png")`, // paste image here
+    backgroundImage: `url("/other_pics/Secretariat.JPG")`, // paste image here
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
