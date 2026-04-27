@@ -1271,7 +1271,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <span className="italic">history?</span>
           </h2>
           <p className="text-lg mb-10 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Join 300+ delegates from 50+ schools. Three days. Six committees. One extraordinary conference.
+            Join 100+ delegates from Various schools. Two days. Five committees. One extraordinary conference.
           </p>
           <button
             onClick={() => onNavigate('register')}
