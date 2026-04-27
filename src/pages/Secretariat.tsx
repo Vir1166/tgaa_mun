@@ -101,21 +101,21 @@ export default function Secretariat() {
       role: 'Secretary-General',
       bio: 'A passionate advocate for international cooperation with 4 years of MUN experience.',
       email: 'sg@tgaamun.org',
-      image: '/secretariat/samaira.png',
+      image: '/secretariat/Samaira.jpeg',
     },
     {
       name: 'Oas Maheshwari',
       role: 'Deputy Secretary-General',
       bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences.',
       email: 'dg@tgaamun.org',
-      image: '/secretariat/oas.png',
+      image: '/secretariat/Oas.jpeg',
     },
     {
       name: 'Liana Matthew',
       role: 'Director-General',
       bio: 'Focused on execution and ensuring smooth conference operations.',
       email: 'dg@tgaamun.org',
-      image: '/secretariat/liana.png',
+      image: '/secretariat/Liana.jpeg',
     },
   ];
 
@@ -125,21 +125,21 @@ export default function Secretariat() {
       role: 'Head of Delegate Affairs',
       bio: 'Handles delegate coordination and communication.',
       email: 'delegates@tgaamun.org',
-      image: '/secretariat/vir.png',
+      image: '/secretariat/Vir.jpeg',
     },
     {
       name: 'Dishant Mehta',
       role: 'Head of Delegate Affairs',
       bio: 'Supports delegate experience and onboarding.',
       email: 'delegates@tgaamun.org',
-      image: '/secretariat/dishant.png',
+      image: '/secretariat/Dishant.jpeg',
     },
     {
       name: 'Prarthana Krishnan',
       role: 'Head of Delegate Affairs',
       bio: 'Ensures smooth delegate workflow and support.',
       email: 'delegates@tgaamun.org',
-      image: '/secretariat/prarthana.png',
+      image: '/secretariat/Prarthana.jpeg',
     },
   ];
 
@@ -149,7 +149,7 @@ export default function Secretariat() {
       role: 'Head of Logistics',
       bio: 'Oversees operations, venue, and execution.',
       email: 'logistics@tgaamun.org',
-      image: '/secretariat/ved.jpg',
+      image: '/secretariat/Ved.jpeg',
     },
   ];
 
@@ -159,14 +159,14 @@ export default function Secretariat() {
       role: 'Head of PR',
       bio: 'Handles outreach and communications.',
       email: 'dg@tgaamun.org',
-      image: '/secretariat/alisha.jpg',
+      image: '/secretariat/Alisha.jpeg',
     },
     {
       name: 'Aanya Vaishya',
       role: 'Head of PR',
       bio: 'Supports marketing and public presence.',
       email: 'dg@tgaamun.org',
-      image: '/secretariat/aanya.jpg',
+      image: '/secretariat/Aanya.jpeg',
     },
   ];
 
@@ -176,14 +176,14 @@ export default function Secretariat() {
       role: 'Head of IPC',
       bio: 'Manages press and media coverage.',
       email: 'communications@tgaamun.org',
-      image: '/secretariat/madhav.jpg',
+      image: '/secretariat/Madhav.jpeg',
     },
     {
       name: 'Deetya Gupta',
       role: 'Head of IPC',
       bio: 'Handles reporting and documentation.',
       email: 'finance@tgaamun.org',
-      image: '/secretariat/deetya.jpg',
+      image: '/secretariat/Deetya.jpeg',
     },
   ];
 
@@ -193,14 +193,37 @@ export default function Secretariat() {
       role: 'Head of Design & Layout',
       bio: 'Leads visual design and branding.',
       email: 'dg@tgaamun.org',
-      image: '/secretariat/maghi.jpg',
+      image: '/secretariat/Maghi.jpeg',
     },
     {
       name: 'Teesha Paul',
       role: 'Head of Design & Layout',
       bio: 'Supports design and layout work.',
       email: 'dg@tgaamun.org',
-      image: '/secretariat/teesha.jpg',
+      image: '/secretariat/Teesha.jpeg',
+    },
+  ];
+  const teachersInCharge: TeamMember[] = [
+    {
+      name: 'Ms. Arpita Rautaray',
+      role: 'Delegate Affairs & IPC',
+      bio: 'Oversees academic guidance and ensures smooth coordination with the school administration.',
+      email: 'teachers@tgaamun.org',
+      image: '/secretariat/anjali.jpg',
+    },
+    {
+      name: 'Ms. Jyoti Singh',
+      role: 'Design & Layout',
+      bio: 'Supports logistics, student coordination, and overall execution of the conference.',
+      email: 'teachers@tgaamun.org',
+      image: '/secretariat/rahul.jpg',
+    },
+    {
+      name: 'Ms. Abhijeet Kaur',
+      role: 'Logistics',
+      bio: 'Provides mentorship and supervises planning and operations.',
+      email: 'teachers@tgaamun.org',
+      image: '/secretariat/priya.jpg',
     },
   ];
 
@@ -264,7 +287,7 @@ export default function Secretariat() {
       <TeamSection title="Public Relations" subtitle="Under Secretary Generals" members={publicRelations} />
       <TeamSection title="International Press" subtitle="Under Secretary Generals" members={internationalPress} />
       <TeamSection title="Design & Layout" subtitle="Under Secretary Generals" members={designLayout} />
-
+      <TeamSection title="Teachers in Charge" subtitle="Faculty Advisors" members={teachersInCharge}/>
       <style jsx>{`
         .flip-card {
           perspective: 2000px;

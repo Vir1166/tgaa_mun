@@ -30,74 +30,51 @@ export default function Registration() {
         </div>
       </section>
 
-      {/* ── GOOGLE FORM EMBED ── */}
-      {/* ── REGISTRATION OPTIONS ── */}
-<section className="py-20" style={{ background: 'var(--navy-mid)' }}>
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── REGISTRATION ── */}
+      <section className="py-20" style={{ background: 'var(--navy-mid)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div
-      className="clip-corner p-10 text-center"
-      style={{
-        background: 'var(--navy-card)',
-        border: '1px solid rgba(31,158,92,0.2)',
-      }}
-    >
-      <div className="h-1 mb-8" style={{ background: 'var(--green)' }} />
+          <div
+            className="clip-corner p-10 text-center"
+            style={{
+              background: 'var(--navy-card)',
+              border: '1px solid rgba(31,158,92,0.2)',
+            }}
+          >
+            <div className="h-1 mb-8" style={{ background: 'var(--green)' }} />
 
-      <h2
-        className="font-display font-bold text-3xl mb-4"
-        style={{ color: 'var(--cream)' }}
-      >
-        Choose Registration Type
-      </h2>
+            <h2
+              className="font-display font-bold text-3xl mb-4"
+              style={{ color: 'var(--cream)' }}
+            >
+              Registration
+            </h2>
 
-      <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>
-        Select the appropriate form based on your category.
-      </p>
+            <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>
+              Fill out the official registration form to confirm your participation.
+            </p>
 
-      <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <a
+              href="PASTE_YOUR_FINAL_GOOGLE_FORM_LINK_HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-12 py-5 font-semibold clip-corner transition-all hover:scale-105 hover:opacity-90 inline-block"
+              style={{
+                background: 'var(--green)',
+                color: 'white',
+                fontFamily: 'DM Mono, monospace',
+                letterSpacing: '0.05em',
+                fontSize: '0.85rem',
+                boxShadow: '0 10px 30px rgba(31,158,92,0.25)',
+              }}
+            >
+              LINK →
+            </a>
 
-        {/* EXTERNAL */}
-        <a
-          href="https://docs.google.com/forms/u/3/d/1ZOCPOVzJioEQV0V8BYWB9psiqAOIMJ9ilJ8H7aUfviw/edit?usp=sharing_eil_se_dm&ts=69ce77a0"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-10 py-4 font-semibold clip-corner transition-all hover:scale-105 hover:opacity-90"
-          style={{
-            background: 'var(--green)',
-            color: 'white',
-            fontFamily: 'DM Mono, monospace',
-            letterSpacing: '0.05em',
-            fontSize: '0.8rem',
-            boxShadow: '0 10px 30px rgba(31,158,92,0.25)',
-          }}
-        >
-          EXTERNAL REGISTRATION →
-        </a>
+          </div>
 
-        {/* INTERNAL */}
-        <a
-          href="https://docs.google.com/forms/u/3/d/10RLMbj0RuzjCH47-mIeCjMN25BHQO2jy1Pk4dMymeoU/edit?usp=sharing_eil&ts=69ce77fe&urp=gmail_link"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-10 py-4 font-semibold transition-all hover:scale-105 hover:opacity-80"
-          style={{
-            color: 'var(--cream)',
-            border: '1px solid rgba(245,240,232,0.2)',
-            fontFamily: 'DM Mono, monospace',
-            letterSpacing: '0.05em',
-            fontSize: '0.8rem',
-            background: 'rgba(255,255,255,0.03)',
-          }}
-        >
-          INTERNAL REGISTRATION →
-        </a>
-
-      </div>
-    </div>
-
-  </div>
-</section>
+        </div>
+      </section>
     </div>
   );
 }

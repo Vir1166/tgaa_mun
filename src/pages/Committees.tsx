@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Users, FileText, Globe } from 'lucide-react';
+import { X, FileText, Globe } from 'lucide-react';
 
 interface Committee {
   id: string;
@@ -7,7 +7,6 @@ interface Committee {
   shortName: string;
   agenda: string;
   description: string;
-  delegates: number;
   difficulty: string;
   fullDescription: string;
 }
@@ -26,9 +25,8 @@ export default function Committees() {
       id: '1',
       name: 'Disarmament and International Security Committee',
       shortName: 'DISEC',
-      agenda: 'Regulation of Autonomous Weapons Systems',
+      agenda: 'Regulation of Autonomous Weapons Systems (AWS) and Lethal AI in Warfare.',
       description: 'Address the ethical, legal, and security implications of lethal autonomous weapons in modern warfare.',
-      delegates: 20,
       difficulty: 'Senior',
       fullDescription: 'The Disarmament and International Security Committee (DISEC) is the First Committee of the UN General Assembly. In this committee, delegates will tackle the complex issue of regulating autonomous weapons systems, examining international humanitarian law, arms control treaties, and the future of warfare. This committee requires strong research skills and the ability to balance security concerns with humanitarian principles.',
     },
@@ -36,9 +34,8 @@ export default function Committees() {
       id: '2',
       name: 'United Nations Security Council',
       shortName: 'UNSC',
-      agenda: 'Preventing Escalation in the Middle East',
+      agenda: 'Preventing Regional Escalation in the Middle East with emphasis on Iran and the Threat to Global Security.',
       description: "Navigate complex regional tensions and work toward sustainable peace in one of the world's most volatile regions.",
-      delegates: 15,
       difficulty: 'Senior',
       fullDescription: 'The United Nations Security Council is the most powerful body in the UN system, responsible for maintaining international peace and security. Delegates will engage in crisis-driven debate on Middle Eastern conflicts, utilizing veto powers, working papers, and resolutions. This committee demands exceptional diplomacy, quick thinking, and deep knowledge of international relations. Limited seats available.',
     },
@@ -46,31 +43,28 @@ export default function Committees() {
       id: '3',
       name: 'Historical Crisis Cabinet Committee',
       shortName: 'HCCC',
-      agenda: 'The Cuban Missile Crisis (October 1962)',
+      agenda: 'The Cuban Missile Crisis of 1962: Addressing Security Concerns Arising from Missile Deployments in Cuba and Turkey.',
       description: "Step into the shoes of Kennedy administration officials during the most dangerous moment of the Cold War.",
-      delegates: 16,
       difficulty: 'Senior',
       fullDescription: "Experience history's most perilous thirteen days as a member of President Kennedy's Executive Committee. This fast-paced crisis committee will test your ability to make critical decisions under pressure, respond to breaking developments, and prevent nuclear war. Delegates must be prepared for continuous crisis updates, backroom negotiations, and high-stakes diplomacy.",
     },
     {
       id: '4',
-      name: "United Nations Children's Fund",
+      name: "United Nations International Children's Emergency Fund",
       shortName: 'UNICEF',
-      agenda: 'Digital Rights and Privacy in the Age of Surveillance',
+      agenda: 'Education of Children in War affected Zones',
       description: 'Balance national security interests with fundamental rights to privacy in an increasingly digital world.',
-      delegates: 20,
       difficulty: 'Junior',
-      fullDescription: 'The UN Human Rights Council addresses critical human rights issues globally. Delegates will debate the intersection of technology, privacy, and state surveillance, examining cases from around the world. This committee explores questions of digital sovereignty, corporate responsibility, and the universal right to privacy. Strong argumentation and ethical reasoning skills are essential.',
+      fullDescription: 'UNICEF is a key UN agency dedicated to protecting the rights and well-being of children worldwide. Delegates will engage in solution-oriented discussions on issues such as child protection, education, healthcare, and humanitarian aid, drafting resolutions that address real-world challenges affecting children. This committee emphasizes collaboration, policy innovation, and practical impact. Ideal for delegates who value structured debate, social awareness, and meaningful global change.',
     },
     {
       id: '5',
       name: 'Social, Humanitarian, and Cultural Committee',
       shortName: 'SOCHUM',
-      agenda: 'Combating Plastic Pollution in Marine Ecosystems',
+      agenda: 'Protecting Human Rights During Counterterrorism Operations',
       description: 'Develop comprehensive strategies to address one of the most pressing environmental challenges of our time.',
-      delegates: 20,
       difficulty: 'Junior',
-      fullDescription: 'The United Nations Environment Programme leads global environmental action. Delegates will craft innovative solutions to the plastic pollution crisis, examining production, consumption, waste management, and international cooperation. This committee is ideal for delegates interested in environmental policy, sustainable development, and multilateral cooperation. First-time delegates are welcome.',
+      fullDescription: 'SOCHUM is the Third Committee of the UN General Assembly, focusing on human rights and social development issues worldwide. Delegates will engage in structured debate on topics such as refugee protection, gender equality, racial discrimination, and fundamental freedoms, working through speeches, moderated caucuses, and resolutions. This committee requires strong research, balanced argumentation, and a clear understanding of global socio-political dynamics. Suitable for delegates interested in impactful yet policy-driven discussions.',
     },
   ];
 
@@ -121,7 +115,7 @@ export default function Committees() {
       className="text-lg max-w-2xl leading-relaxed"
       style={{ color: 'var(--muted)' }}
     >
-      Six diverse committees covering the most pressing global challenges,
+      Five diverse committees covering the most pressing global challenges,
       from international security to environmental sustainability.
     </p>
   </div>
@@ -169,10 +163,6 @@ export default function Committees() {
                     </p>
 
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2" style={{ color: 'var(--muted)' }}>
-                        <Users size={13} />
-                        <span className="tag-label">{committee.delegates} delegates</span>
-                      </div>
                       <span
                         className="tag-label px-2 py-1 rounded-sm"
                         style={{
@@ -261,11 +251,7 @@ export default function Committees() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 clip-corner" style={{ background: 'var(--navy-mid)', border: '1px solid rgba(31,158,92,0.1)' }}>
-                  <p className="tag-label mb-1" style={{ color: 'var(--muted)' }}>Committee Size</p>
-                  <p className="font-display font-bold text-3xl" style={{ color: 'var(--green)' }}>{selectedCommittee.delegates}</p>
-                </div>
-                <div className="p-4 clip-corner" style={{ background: 'var(--navy-mid)', border: '1px solid rgba(31,158,92,0.1)' }}>
-                  <p className="tag-label mb-1" style={{ color: 'var(--muted)' }}>Difficulty Level</p>
+                  <p className="tag-label mb-1" style={{ color: 'var(--muted)' }}>TYPE</p>
                   <p className="font-display font-bold text-xl mt-2" style={{ color: difficultyStyle(selectedCommittee.difficulty).color }}>{selectedCommittee.difficulty}</p>
                 </div>
               </div>

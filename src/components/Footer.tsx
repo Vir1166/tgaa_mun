@@ -65,7 +65,7 @@ export default function Footer() {
             </div>
 
             <p className="text-sm font-mono" style={{ color: 'var(--muted)' }}>
-              info@tgaamun.org
+              tgaamun@chembur.tgaa.in
             </p>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function Footer() {
           </p>
 
           <p className="tag-label" style={{ color: 'var(--muted)' }}>
-            Student-run · Student-led · Student-owned
+            Student-run · Student-led
           </p>
         </div>
 

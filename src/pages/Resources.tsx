@@ -4,39 +4,39 @@ export default function Resources() {
 
   const documents = [
     {
-      title: 'DISEC Background Guide',
+      title: 'DISEC Study Guide',
       description: 'Comprehensive guide on regulating autonomous weapons systems',
       category: 'Background Guides',
       icon: FileText,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://docs.google.com/document/d/1T0ALwC2N4X1w4ZNoeTn_Redx-QEwNdG95ZAVTzLJaNA/edit?usp=sharing'
     },
     {
-      title: 'UNSC Background Guide',
+      title: 'UNSC Study Guide',
       description: 'Analysis of Middle Eastern conflicts and security challenges',
       category: 'Background Guides',
       icon: FileText,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://docs.google.com/document/d/1UxhaHyNzoyn2o2mwmbF9oRYoc78ZHU4gyL2LTmjqnGQ/edit?usp=sharing'
     },
     {
-      title: 'HCCC Background Guide',
+      title: 'HCCC Study Guide',
       description: 'Historical context and crisis briefing for Cuban Missile Crisis',
       category: 'Background Guides',
       icon: FileText,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://docs.google.com/document/d/1SjM4owuFVhNFZ05zY9pHhkOMis4-hH8rIwLaI0i5bzY/edit?usp=sharing'
     },
     {
-      title: 'SOCHUM Background Guide',
+      title: 'SOCHUM Study Guide',
       description: 'Digital rights, privacy, and surveillance in the modern era',
       category: 'Background Guides',
       icon: FileText,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://docs.google.com/document/d/16ntTMItwB2yt3xDBu5ot69A4JUB7cqGn/edit?usp=sharing&ouid=115829638213049318520&rtpof=true&sd=true'
     },
     {
-      title: 'UNICEF Background Guide',
+      title: 'UNICEF Study Guide',
       description: 'Marine plastic pollution and environmental solutions',
       category: 'Background Guides',
       icon: FileText,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://docs.google.com/document/d/19so3VS3q4XVBkZU39wb4UONRA6xJKcxCjH0F1NTswAw/edit?usp=sharing'
     },
     {
       title: 'Rules of Procedure',

@@ -12,65 +12,6 @@ import {
 } from 'lucide-react';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// UN Logo pattern
-// ─────────────────────────────────────────────────────────────────────────────
-function UNLogoPattern() {
-  const cols = 6;
-  const rows = 4;
-  const rotations = [
-    -18, 12, -8, 22, -30, 15, -10, 25,
-     25,-14, 18, -6,  28,-20,  16, -8,
-    -10, 20,-25, 10, -15, 30, -18, 12,
-     16, -8, 24,-18,   8,-22,  22,-14,
-  ];
-
-  const logos: { left: string; top: string; rot: number }[] = [];
-  const colWidth = 100 / cols;
-
-  for (let r = 0; r < rows; r++) {
-    for (let c = -1; c <= cols; c++) {
-      const idx = (r * (cols + 2) + (c + 1)) % rotations.length;
-      const stagger = r % 2 === 1 ? colWidth / 2 : 0;
-      const left = c * colWidth + colWidth / 2 + stagger;
-      logos.push({
-        left: `${left}%`,
-        top: `${(r / rows) * 100 + 100 / rows / 2}%`,
-        rot: rotations[idx] ?? 0,
-      });
-    }
-  }
-
-  return (
-    <div
-      className="absolute inset-0 pointer-events-none overflow-hidden"
-      style={{
-        maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, black 100%)',
-        WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, black 100%)',
-      }}
-    >
-      {logos.map((l, i) => (
-        <img
-          key={i}
-          src="/white_un.png"
-          alt=""
-          style={{
-            position: 'absolute',
-            left: l.left,
-            top: l.top,
-            width: '38px',
-            height: '38px',
-            opacity: 0.055,
-            filter: 'grayscale(1) brightness(4)',
-            transform: `translate(-50%, -50%) rotate(${l.rot}deg)`,
-            pointerEvents: 'none',
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
 // World Map Background
 // ─────────────────────────────────────────────────────────────────────────────
 function WorldMapBackground() {
@@ -147,10 +88,15 @@ function WorldMapBackground() {
 // ─────────────────────────────────────────────────────────────────────────────
 // Scroll intro
 // ─────────────────────────────────────────────────────────────────────────────
+
+// Module-level flag: persists across re-mounts for the lifetime of the session.
+// Once the intro is dismissed it will never play again until a full page reload.
+let introAlreadyPlayed = false;
+
 function ScrollIntro() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissed, setDismissed] = useState(introAlreadyPlayed);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -171,6 +117,7 @@ function ScrollIntro() {
       setProgress(next);
 
       if (next >= 0.995) {
+        introAlreadyPlayed = true;
         setDismissed(true);
 
         window.requestAnimationFrame(() => {
@@ -208,33 +155,10 @@ function ScrollIntro() {
 
   const p = progress;
 
-  // ─── FIXED TIMING ───────────────────────────────────────────────────────────
-  //
-  // BUG 1 FIXED: s1 used sv(p, 0.00, ...) so at p=0, condition (p <= es) was
-  // (0 <= 0) = true → returned 0. Slide 1 was invisible on load.
-  // FIX: entry start = -0.01 so at p=0, (p >= ee && p <= xs) = (0>=0 && 0<=0.24)
-  // = true → returns 1 immediately. Slide 1 is fully visible from the first frame.
-  //
-  // BUG 2 FIXED: s3's internal stats animated lr(p, 0.72-0.82) but s3 exited
-  // at 0.74, so the last stats were still animating in while the slide was gone.
-  // FIX: s3 stay window extended to 0.76, s4 pushed to 0.82.
-  //
-  // Container height increased 600vh → 750vh for more comfortable reading time.
-  // ────────────────────────────────────────────────────────────────────────────
-
-  // s1: immediately visible (entry start = -0.01), exits at 0.24–0.30
-  const s1 = sv(p, -0.01, 0.00, 0.24);
-  // s2: fades in 0.27–0.33, stays 0.33–0.49, exits 0.49–0.55
-  const s2 = sv(p, 0.27, 0.33, 0.49);
-  // s3: fades in 0.55–0.61, stays 0.61–0.77, exits 0.77–0.83
-  // (stay window covers all internal lr calls which go up to 0.82)
-  const s3 = sv(p, 0.55, 0.61, 0.77);
-  // s4: fades in 0.83–0.88, xs=1.01 ≥ 1 → xe=9 → never exits
-  const s4 = sv(p, 0.83, 0.88, 1.01);
-
   const META = 'METAMORPHOSIS';
 
   const handleSkip = () => {
+    introAlreadyPlayed = true;
     setDismissed(true);
 
     window.requestAnimationFrame(() => {
@@ -250,6 +174,11 @@ function ScrollIntro() {
     });
   };
 
+  const s1 = sv(p, -0.01, 0.00, 0.24);
+  const s2 = sv(p, 0.27, 0.33, 0.49);
+  const s3 = sv(p, 0.55, 0.61, 0.77);
+  const s4 = sv(p, 0.83, 0.88, 1.01);
+
   const actNum = p < 0.27 ? 1 : p < 0.55 ? 2 : p < 0.83 ? 3 : 4;
 
   if (dismissed) return null;
@@ -258,7 +187,7 @@ function ScrollIntro() {
     <div
       ref={containerRef}
       style={{
-        height: '750vh', // ← increased from 600vh for more comfortable scroll pacing
+        height: '750vh',
         position: 'relative',
         opacity: ready ? 1 : 0,
         transition: 'opacity 0.25s ease',
@@ -296,8 +225,7 @@ function ScrollIntro() {
           }}
         />
 
-
-        {/* ── SLIDE 1: Every year, one stage ── */}
+        {/* ── SLIDE 1 ── */}
         <div
           style={{
             position: 'absolute',
@@ -322,7 +250,7 @@ function ScrollIntro() {
               transform: `translateY(${(1 - s1) * 18}px)`,
             }}
           >
-            EST. 2026 · CHEMBUR, MUMBAI
+            EST. 2025 · CHEMBUR, MUMBAI
           </p>
 
           <h2
@@ -432,7 +360,7 @@ function ScrollIntro() {
               marginBottom: '2rem',
             }}
           >
-            TGAA MUN 2026 · THEME
+            TGAA MUN 2.0 · THEME
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -507,7 +435,6 @@ function ScrollIntro() {
               { label: 'VENUE', value: 'THE GREEN ACRES ACADEMY' },
               { label: 'LOCATION', value: 'CHEMBUR, MUMBAI' },
             ].map(({ label, value }, idx) => {
-              // lr values shifted forward to match new s3 window (0.61–0.77)
               const lp = lr(p, 0.62 + idx * 0.04, 0.69 + idx * 0.04);
 
               return (
@@ -553,7 +480,6 @@ function ScrollIntro() {
                 { val: 5, suffix: '', label: 'COMMITTEES' },
                 { val: 2, suffix: '', label: 'DAYS' },
               ].map(({ val, suffix, label }, idx) => {
-                // lr values shifted to complete well within s3's stay window (0.61–0.77)
                 const lp = lr(p, 0.68 + idx * 0.025, 0.75 + idx * 0.025);
                 const displayed = Math.floor(lp * val);
 
@@ -623,7 +549,7 @@ function ScrollIntro() {
             THE GREEN ACRES ACADEMY PRESENTS
           </p>
 
-          {(['TGAA', 'MUN', '2026'] as const).map((word, wi) => {
+          {(['TGAA', 'MUN', '2.0'] as const).map((word, wi) => {
             const lp = lr(p, 0.86 + wi * 0.02, 0.97);
             const isOutline = wi === 1;
 
@@ -658,7 +584,7 @@ function ScrollIntro() {
               marginTop: '2.2rem',
             }}
           >
-            {['UNSC', 'DISEC', 'UNHRC', 'HCCC', 'UNGA'].map((c, i) => {
+            {['UNSC', 'DISEC', 'HCCC', 'UNICEF', 'SOCHUM'].map((c, i) => {
               const lp = lr(p, 0.91 + i * 0.01, 0.995);
 
               return (
@@ -819,7 +745,7 @@ export default function Home({ onNavigate }: HomeProps) {
   }, []);
 
   const highlights = [
-    { icon: Calendar, label: 'Conference Dates', value: 'Jul 30-Aug 1, 2026' },
+    { icon: Calendar, label: 'Conference Dates', value: 'Jul 31-Aug 1, 2026' },
     { icon: MapPin, label: 'Location', value: 'The Green Acres Academy, Chembur' },
     { icon: Users, label: 'Expected Delegates', value: '100+' },
     { icon: Award, label: 'Committees', value: '5 Committees' },
@@ -828,20 +754,20 @@ export default function Home({ onNavigate }: HomeProps) {
   const testimonials = [
     {
       quote:
-        'TGAA MUN transformed my understanding of international relations. The debates were intense and the experience was invaluable.',
-      author: 'Sarah Johnson',
-      role: 'Delegate, DISEC 2025',
+        'TGAAMUN was a memorable experience. The excellent preparation materials, professional Executive Board, and engaging discussions stood out. Social interactions, especially during high tea, were enjoyable. The conference enhanced my passion for international affairs and improved my public speaking and attention to detail.',
+      author: 'Saisha Nair',
+      role: 'Delegate, UNHRC 2025',
     },
     {
       quote:
-        'The caliber of delegates and the quality of discourse exceeded my expectations. A truly world-class conference.',
-      author: 'Michael Chen',
-      role: 'Delegate, UNSC 2025',
+        'TGAAMUN was a whirlwind of deliberations, but there was much more to it. We had lively MOEs, a photobooth, and an amazing dance party that unburdened the delegates from having to be the best one out there. It was gruelling at times, but that\'s where we all really shone. ',
+      author: 'Anaysha Naren',
+      role: 'Delegate, HCCC 2025',
     },
     {
       quote:
-        'From the secretariat to the logistics, everything was professionally executed. This is the gold standard for MUN conferences.',
-      author: 'Priya Sharma',
+        'In my first experience as a delegate to the TGAA MUN last year, the event was challenging but exciting for me. At first, I was intimidated, but soon I got used to the process. Being involved in debates, negotiations, and collaborations allowed me to gain confidence in my ability to communicate effectively.',
+      author: 'Dishant Mehta',
       role: 'Delegate, HCCC 2025',
     },
   ];
@@ -939,7 +865,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   MUN
                 </span>
                 <span className="block text-6xl sm:text-8xl lg:text-[110px] font-black tracking-tight">
-                  2026
+                  2.0
                 </span>
               </h1>
             </div>
@@ -989,7 +915,6 @@ export default function Home({ onNavigate }: HomeProps) {
 
       {/* COUNTDOWN / CONFERENCE STATE */}
       <section className="relative overflow-hidden" style={{ background: 'var(--navy-mid)' }}>
-        <UNLogoPattern />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -1022,7 +947,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 </span>
               )}
               <p className="tag-label" style={{ color: 'var(--green)' }}>
-                TGAA MUN 2026 · July 31 - Aug 1
+                TGAA MUN 2.0 · July 31 - Aug 1
               </p>
             </div>
 
@@ -1224,7 +1149,7 @@ export default function Home({ onNavigate }: HomeProps) {
               {[
                 { val: '100+', label: 'Delegates', color: 'var(--green)' },
                 { val: '5', label: 'Committees', color: '#4a9eff' },
-                { val: 'Multiple', label: 'Schools', color: '#b46fff' },
+                { val: 'Inter', label: 'School', color: '#b46fff' },
                 { val: '2', label: 'Days', color: '#ff8c4a' },
               ].map(({ val, label, color }) => (
                 <div
@@ -1359,7 +1284,7 @@ export default function Home({ onNavigate }: HomeProps) {
               fontSize: '0.85rem',
             }}
           >
-            REGISTER FOR TGAA MUN 2026 →
+            REGISTER FOR TGAA MUN 2.0 →
           </button>
         </div>
       </section>

@@ -21,7 +21,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
   const navItems = [
     { name: 'About', id: 'about' },
     { name: 'Committees', id: 'committees' },
-    { name: 'Secretariat', id: 'secretariat' },
+    { name: 'Core OC', id: 'secretariat' },
     { name: 'Resources', id: 'resources' },
     { name: 'Contact', id: 'contact' },
   ];
@@ -61,7 +61,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               className="font-display font-bold text-lg tracking-tight"
               style={{ color: 'var(--cream)' }}
             >
-              TGAA <span style={{ color: 'var(--green)' }}>MUN</span>
+              TGAA <span style={{ color: 'var(--green)' }}>MUN 2.0</span>
             </span>
 
             <span
