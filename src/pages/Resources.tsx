@@ -53,11 +53,11 @@ export default function Resources() {
       link: 'https://drive.google.com/file/d/XXXX/view'
     },
     {
-      title: 'Delegate Handbook',
+      title: 'Brochure',
       description: 'Everything you need to know about TGAA MUN 2026',
       category: 'Conference Documents',
       icon: BookOpen,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://drive.google.com/file/d/17zCXaRqjVeplLQ4XBRyBZzWzNAI3hSha/view'
     },
     {
       title: 'FAQs',
