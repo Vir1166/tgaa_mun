@@ -1,4 +1,22 @@
 import { Mail, Linkedin } from 'lucide-react';
+import React from 'react';
+
+function copyEmail(email: string) {
+  navigator.clipboard.writeText(email)
+    .then(() => {
+      // optional feedback
+      console.log('Copied:', email);
+    })
+    .catch(() => {
+      // fallback if permissions fail
+      const textarea = document.createElement('textarea');
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    });
+}
 
 interface TeamMember {
   name: string;
@@ -37,55 +55,91 @@ function TeamSection({ title, subtitle, members }: SectionProps) {
 
         <div className="flex justify-center">
           <div className="flex flex-wrap justify-center gap-10 max-w-[1100px]">
-            {members.map((member, i) => (
-              <div key={i} className="flip-card w-full sm:w-[46%] lg:w-[320px] xl:w-[340px]">
-                <div className="flip-inner">
+          {members.map((member, i) => {
+  const [copied, setCopied] = React.useState(false);
 
-                  {/* FRONT */}
-                  <div className="flip-face front">
-                    <div className="h-[72%] relative">
-                      <img src={member.image} alt={member.name} className="h-full w-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#07111e] via-[#07111e99] to-transparent" />
-                    </div>
+  function handleCopy(email: string) {
+    navigator.clipboard.writeText(email)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1200);
+      })
+      .catch(() => {
+        const textarea = document.createElement('textarea');
+        textarea.value = email;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
 
-                    <div className="h-[28%] p-5 flex flex-col justify-end">
-                      <h3 className="font-display font-bold text-xl" style={{ color: 'var(--cream)' }}>
-                        {member.name}
-                      </h3>
-                      <p className="tag-label" style={{ color: 'var(--green)' }}>
-                        {member.role}
-                      </p>
-                    </div>
-                  </div>
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1200);
+      });
+  }
 
-                  {/* BACK */}
-                  <div className="flip-face back">
-                    <div className="h-full p-6 flex flex-col">
-                      <h3 className="font-display font-bold text-xl mb-1" style={{ color: 'var(--cream)' }}>
-                        {member.name}
-                      </h3>
-                      <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
-                        {member.role}
-                      </p>
+  return (
+    <div key={i} className="flip-card w-full sm:w-[46%] lg:w-[320px] xl:w-[340px]">
+      <div className="flip-inner">
 
-                      <p className="text-sm flex-1" style={{ color: 'var(--muted)' }}>
-                        {member.bio}
-                      </p>
+        {/* FRONT */}
+        <div className="flip-face front">
+          <div className="h-[72%] relative">
+            <img src={member.image} alt={member.name} className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07111e] via-[#07111e99] to-transparent" />
+          </div>
 
-                      <div className="flex justify-between mt-4 pt-4 border-t border-[rgba(31,158,92,0.15)]">
-                        <a href={`mailto:${member.email}`} style={{ color: 'var(--green)' }}>
-                          <Mail size={16} />
-                        </a>
-                        <a href="#" style={{ color: 'var(--muted)' }}>
-                          <Linkedin size={16} />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+          <div className="h-[28%] p-5 flex flex-col justify-end">
+            <h3 className="font-display font-bold text-xl" style={{ color: 'var(--cream)' }}>
+              {member.name}
+            </h3>
+            <p className="tag-label" style={{ color: 'var(--green)' }}>
+              {member.role}
+            </p>
+          </div>
+        </div>
 
-                </div>
+        {/* BACK */}
+        <div className="flip-face back">
+          <div className="h-full p-6 flex flex-col">
+            <h3 className="font-display font-bold text-xl mb-1" style={{ color: 'var(--cream)' }}>
+              {member.name}
+            </h3>
+            <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
+              {member.role}
+            </p>
+
+            <p className="text-sm flex-1" style={{ color: 'var(--muted)' }}>
+              {member.bio}
+            </p>
+
+            <div className="flex justify-between mt-4 pt-4 border-t border-[rgba(31,158,92,0.15)]">
+              
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => handleCopy(member.email)}
+                  className={`mail-btn ${copied ? 'copied' : ''}`}
+                  aria-label="Copy email"
+                >
+                  <Mail size={16} />
+                </button>
+
+                <span className={`copy-text ${copied ? 'show' : ''}`}>
+                  Copied to Clipboard!
+                </span>
               </div>
-            ))}
+
+              <a href="#" style={{ color: 'var(--muted)' }}>
+                <Linkedin size={16} />
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+})}
           </div>
         </div>
       </div>
@@ -100,21 +154,21 @@ export default function Secretariat() {
       name: 'Samaira Pimple',
       role: 'Secretary-General',
       bio: 'A passionate advocate for international cooperation with 4 years of MUN experience.',
-      email: 'sg@tgaamun.org',
+      email: 'gch13ic301@chembur.tgaa.in ',
       image: '/secretariat/Samaira.jpeg',
     },
     {
       name: 'Oas Maheshwari',
       role: 'Deputy Secretary-General',
       bio: 'Dedicated to creating inclusive and intellectually stimulating conference experiences.',
-      email: 'dg@tgaamun.org',
+      email: 'gch13ic028@chembur.tgaa.in ',
       image: '/secretariat/Oas.jpeg',
     },
     {
-      name: 'Liana Matthew',
+      name: 'Liana Mathew',
       role: 'Director-General',
       bio: 'Focused on execution and ensuring smooth conference operations.',
-      email: 'dg@tgaamun.org',
+      email: 'gch14ic063@chembur.tgaa.in',
       image: '/secretariat/Liana.jpeg',
     },
   ];
@@ -124,21 +178,21 @@ export default function Secretariat() {
       name: 'Vir Hariharan',
       role: 'Head of Delegate Affairs',
       bio: 'Handles delegate coordination and communication.',
-      email: 'delegates@tgaamun.org',
+      email: 'gch13ic039@chembur.tgaa.in ',
       image: '/secretariat/Vir.jpeg',
     },
     {
       name: 'Dishant Mehta',
       role: 'Head of Delegate Affairs',
-      bio: 'Supports delegate experience and onboarding.',
-      email: 'delegates@tgaamun.org',
+      bio: 'He is the Head of Delegate Affairs. They call him Julius Caesar. New delegates enter nervous and leave ready to betray their own allies for speaking time. He trains speeches, stabs weak arguments repeatedly, and turns fear into confidence overnight. Sleep was overthrown years ago. When chaos enters committee, it gets conquered before roll call starts.',
+      email: 'gch13ic091@chembur.tgaa.in',
       image: '/secretariat/Dishant.jpeg',
     },
     {
       name: 'Prarthana Krishnan',
       role: 'Head of Delegate Affairs',
       bio: 'Ensures smooth delegate workflow and support.',
-      email: 'delegates@tgaamun.org',
+      email: 'gch13ic282@chembur.tgaa.in',
       image: '/secretariat/Prarthana.jpeg',
     },
   ];
@@ -148,7 +202,7 @@ export default function Secretariat() {
       name: 'Ved Hariharan',
       role: 'Head of Logistics',
       bio: 'Oversees operations, venue, and execution.',
-      email: 'logistics@tgaamun.org',
+      email: 'gch13ic038@chembur.tgaa.in ',
       image: '/secretariat/Ved.jpeg',
     },
   ];
@@ -158,14 +212,14 @@ export default function Secretariat() {
       name: 'Shivakshi Kutty',
       role: 'Head of PR',
       bio: 'Handles outreach and communications.',
-      email: 'dg@tgaamun.org',
+      email: 'gch13ic300@chembur.tgaa.in ',
       image: '/secretariat/Shivakshi.jpeg',
     },
     {
       name: 'Aanya Vaishya',
       role: 'Head of PR',
       bio: 'Supports marketing and public presence.',
-      email: 'dg@tgaamun.org',
+      email: 'gch13ic041@chembur.tgaa.in ',
       image: '/secretariat/Aanya.jpeg',
     },
   ];
@@ -175,14 +229,14 @@ export default function Secretariat() {
       name: 'Madhav T',
       role: 'Head of IPC',
       bio: 'Manages press and media coverage.',
-      email: 'communications@tgaamun.org',
+      email: 'gch13ic181@chembur.tgaa.in ',
       image: '/secretariat/Madhav.jpeg',
     },
     {
       name: 'Deetya Gupta',
       role: 'Head of IPC',
       bio: 'Handles reporting and documentation.',
-      email: 'finance@tgaamun.org',
+      email: 'gch13ic283@chembur.tgaa.in',
       image: '/secretariat/Deetya.jpeg',
     },
   ];
@@ -192,21 +246,21 @@ export default function Secretariat() {
       name: 'Alisha Gaikwad',
       role: 'Head of PR',
       bio: 'Handles outreach and communications.',
-      email: 'dg@tgaamun.org',
+      email: 'gch13ic044@chembur.tgaa.in',
       image: '/secretariat/Alisha.jpeg',
     },
     {
       name: 'Maghi Patil',
       role: 'Head of Design & Layout',
       bio: 'Leads visual design and branding.',
-      email: 'dg@tgaamun.org',
+      email: 'gch13ic312@chembur.tgaa.in',
       image: '/secretariat/Maghi.jpeg',
     },
     {
       name: 'Teesha Paul',
       role: 'Head of Design & Layout',
       bio: 'Supports design and layout work.',
-      email: 'dg@tgaamun.org',
+      email: 'gch13ic075@chembur.tgaa.in',
       image: '/secretariat/Teesha.jpeg',
     },
   ];
@@ -215,22 +269,22 @@ export default function Secretariat() {
       name: 'Ms. Arpita Rautaray',
       role: 'Delegate Affairs & IPC',
       bio: 'Oversees academic guidance and ensures smooth coordination with the school administration.',
-      email: 'teachers@tgaamun.org',
-      image: '/secretariat/anjali.jpg',
+      email: 'arpita.rautaray@chembur.tgaa.in',
+      image: '/secretariat/Arpita_Rautaray.png',
     },
     {
       name: 'Ms. Jyoti Singh',
       role: 'Design & Layout',
       bio: 'Supports logistics, student coordination, and overall execution of the conference.',
-      email: 'teachers@tgaamun.org',
-      image: '/secretariat/rahul.jpg',
+      email: 'jyoti.singh@chembur.tgaa.in',
+      image: '/secretariat/Jyoti_Singh.jpg',
     },
     {
-      name: 'Ms. Abhijeet Kaur',
+      name: 'Ms. Abhijeet Khalsa',
       role: 'Logistics',
       bio: 'Provides mentorship and supervises planning and operations.',
-      email: 'teachers@tgaamun.org',
-      image: '/secretariat/priya.jpg',
+      email: 'abhijeet.khalsa@chembur.tgaa.in',
+      image: '/secretariat/Abhijeet_Khalsa.jpg',
     },
   ];
 
@@ -296,6 +350,32 @@ export default function Secretariat() {
       <TeamSection title="Design & Layout" subtitle="Under Secretary Generals" members={designLayout} />
       <TeamSection title="Teachers in Charge" subtitle="Faculty Advisors" members={teachersInCharge}/>
       <style jsx>{`
+      .mail-btn {
+        color: var(--green);
+        transition: color 0.2s ease, transform 0.15s ease;
+      }
+      
+      .mail-btn:hover {
+        transform: scale(1.1);
+      }
+      
+      .mail-btn.copied {
+        color: #1f7a4d;
+      }
+      
+      .copy-text {
+        font-size: 0.75rem;
+        color: white;
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        white-space: nowrap;
+      }
+      
+      .copy-text.show {
+        opacity: 1;
+        transform: translateX(0);
+      }
         .flip-card {
           perspective: 2000px;
           background: transparent;

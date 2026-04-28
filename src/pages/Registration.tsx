@@ -55,7 +55,7 @@ export default function Registration() {
             </p>
 
             <a
-              href="PASTE_YOUR_FINAL_GOOGLE_FORM_LINK_HERE"
+              href="https://docs.google.com/forms/d/1RltWyDZ_HLXq-KDh7vJc_pqhuaIg8m4R9e_2cV_W2sQ/viewform?ts=69d7263b&edit_requested=true"
               target="_blank"
               rel="noopener noreferrer"
               className="px-12 py-5 font-semibold clip-corner transition-all hover:scale-105 hover:opacity-90 inline-block"

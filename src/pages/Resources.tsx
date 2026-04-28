@@ -1,4 +1,4 @@
-import { FileText, Download, BookOpen, Video } from 'lucide-react';
+import { FileText, ExternalLink, BookOpen, Video } from 'lucide-react';
 
 export default function Resources() {
 
@@ -43,10 +43,10 @@ export default function Resources() {
       description: 'Complete guide to parliamentary procedure and debate format',
       category: 'Conference Documents',
       icon: BookOpen,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://drive.google.com/file/d/13thcmr0PkxbGTK-CsPAL-seoHWLJXYuN/view'
     },
     {
-      title: 'Position Paper Guide',
+      title: 'Press Release',
       description: 'How to write an effective position paper with examples',
       category: 'Conference Documents',
       icon: BookOpen,
@@ -60,11 +60,11 @@ export default function Resources() {
       link: 'https://drive.google.com/file/d/XXXX/view'
     },
     {
-      title: 'Research Guide',
-      description: 'Best practices for researching your country and topic',
+      title: 'FAQs',
+      description: 'Go through these questions to clear any doubts',
       category: 'Conference Documents',
       icon: BookOpen,
-      link: 'https://drive.google.com/file/d/XXXX/view'
+      link: 'https://docs.google.com/document/d/1GPBH_uhv_mlUi116_N_eU9o4_LAuP9lFxTjLGgWU81g/edit?tab=t.0#heading=h.t6asvexs5y3j'
     },
   ];
 
@@ -146,7 +146,6 @@ export default function Resources() {
                 <div className="p-6 flex flex-col w-full h-full">
                   <div className="flex items-start justify-between mb-4">
                     <doc.icon size={20} style={{ color: 'var(--green)' }} />
-                    <Download size={14} style={{ color: 'var(--muted)' }} />
                   </div>
 
                   <div className="flex flex-col flex-grow">
@@ -163,7 +162,7 @@ export default function Resources() {
                     className="flex items-center gap-2 text-xs mt-auto"
                     style={{ color: 'var(--green)' }}
                   >
-                    <Download size={12} /> DOWNLOAD PDF
+                    <ExternalLink size={12} /> OPEN
                   </button>
                 </div>
               </div>
@@ -192,7 +191,7 @@ export default function Resources() {
                   className="text-xs flex items-center gap-2"
                   style={{ color: 'var(--green)' }}
                 >
-                  <Download size={12} /> DOWNLOAD
+                  <ExternalLink size={12} /> OPEN
                 </button>
               </div>
             ))}
