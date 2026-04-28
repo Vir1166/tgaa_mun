@@ -336,13 +336,12 @@ export default function Secretariat() {
       className="text-lg max-w-2xl leading-relaxed"
       style={{ color: 'var(--muted)' }}
     >
-      Six diverse committees covering the most pressing global challenges,
-      from international security to environmental sustainability.
+      A dedicated team of student leaders and coordinators working behind the scenes to plan, manage, and execute every aspect of the conference seamlessly.
     </p>
   </div>
 </section>
 
-      <TeamSection title="Secretary Generals" subtitle="Executive Leadership" members={secretariesGenerals} />
+      <TeamSection title="The Secretariat" subtitle="Executive Leadership" members={secretariesGenerals} />
       <TeamSection title="Delegate Affairs" subtitle="Under Secretary Generals" members={delegateAffairs} />
       <TeamSection title="Logistics" subtitle="Under Secretary Generals" members={logistics} />
       <TeamSection title="Public Relations" subtitle="Under Secretary Generals" members={publicRelations} />
