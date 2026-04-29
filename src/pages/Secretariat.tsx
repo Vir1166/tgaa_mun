@@ -155,14 +155,14 @@ export default function Secretariat() {
       role: 'Principal',
       bio: 'Principal of the institution, providing overall leadership and vision for the conference.',
       email: '',
-      image: '/secretariat/bonny.jpg', 
+      image: '/secretariat/Principal.png', 
     },
     {
       name: 'Ms. Suparna',
       role: 'Vice Principal',
       bio: 'Supports institutional leadership and oversees academic coordination.',
       email: '',
-      image: '/secretariat/suparna.jpg',
+      image: '/secretariat/VP.png',
     },
     {
       name: 'Ms. Srushti Vora',

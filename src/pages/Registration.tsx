@@ -3,28 +3,41 @@ export default function Registration() {
     <div className="min-h-screen" style={{ background: 'var(--navy)' }}>
       
       {/* ── HEADER ── */}
-      <section className="pt-32 pb-20 relative overflow-hidden hero-grid-bg">
+      <section
+        className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
+        style={{
+          backgroundImage: `url("/other_pics/registration.jpeg")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay */}
         <div
-          className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, var(--green) 0%, transparent 70%)',
-            transform: 'translate(30%, -30%)'
-          }}
+          className="absolute inset-0"
+          style={{ background: 'rgba(10, 15, 30, 0.7)' }}
         />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
             Secure Your Spot
           </p>
 
-          <h1 className="font-display font-black text-6xl sm:text-8xl leading-none mb-8" style={{ color: 'var(--cream)' }}>
+          <h1
+            className="font-display font-black text-6xl sm:text-8xl leading-none mb-8"
+            style={{ color: 'var(--cream)' }}
+          >
             Register<br />
-            <span className="italic" style={{ color: 'var(--green)' }}>Now</span>
+            <span className="italic" style={{ color: 'var(--green)' }}>
+              Now
+            </span>
           </h1>
 
-          <div className="h-px max-w-sm mb-6" style={{ background: 'rgba(31,158,92,0.4)' }} />
+          <div
+            className="h-px max-w-sm mb-6"
+            style={{ background: 'rgba(31,158,92,0.4)' }}
+          />
 
-          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: 'var(--muted)' }}>
+          <p className="text-lg max-w-2xl" style={{ color: 'var(--muted)' }}>
             Complete your registration using the form below. Registration closes June 1, 2026.
           </p>
         </div>
