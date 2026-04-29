@@ -1,24 +1,7 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Instagram } from 'lucide-react';
+import { Mail, MapPin, Instagram } from 'lucide-react';
 
 export default function Contact() {
-
-  const phoneNumbers = [
-    "+91 88508 53711",
-    "+91 98206 06900",
-    "+91 99879 08191"
-  ];
-
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
-
-  const copyPhone = (index: number) => {
-    navigator.clipboard.writeText(phoneNumbers[index]);
-    setCopiedIndex(index);
-    setTimeout(() => setCopiedIndex(null), 1500);
-  };
-
-  const getBg = (i: number) =>
-    copiedIndex === i ? 'var(--navy-mid)' : 'var(--green-dark)';
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy)' }}>
@@ -123,50 +106,7 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* Phone 1 */}
-            <div
-              onClick={() => copyPhone(0)}
-              className="h-full flex items-center gap-4 p-5 clip-corner cursor-pointer transition-colors duration-300"
-              style={{ background: getBg(0) }}
-            >
-              <Phone size={18} />
-              <div>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Samaira Pimple —— Secretary General</p>
-                <p className="text-sm" style={{ color: 'var(--cream)' }}>
-                  {copiedIndex === 0 ? "Copied to clipboard" : phoneNumbers[0]}
-                </p>
-              </div>
-            </div>
-
-            {/* Phone 2 */}
-            <div
-              onClick={() => copyPhone(1)}
-              className="h-full flex items-center gap-4 p-5 clip-corner cursor-pointer transition-colors duration-300"
-              style={{ background: getBg(1) }}
-            >
-              <Phone size={18} />
-              <div>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Oas Maheshwari —— Deputy Secretary</p>
-                <p className="text-sm" style={{ color: 'var(--cream)' }}>
-                  {copiedIndex === 1 ? "Copied to clipboard" : phoneNumbers[1]}
-                </p>
-              </div>
-            </div>
-
-            {/* Phone 3 */}
-            <div
-              onClick={() => copyPhone(2)}
-              className="h-full flex items-center gap-4 p-5 clip-corner cursor-pointer transition-colors duration-300"
-              style={{ background: getBg(2) }}
-            >
-              <Phone size={18} />
-              <div>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>Liana Matthew —— Director General</p>
-                <p className="text-sm" style={{ color: 'var(--cream)' }}>
-                  {copiedIndex === 2 ? "Copied to clipboard" : phoneNumbers[2]}
-                </p>
-              </div>
-            </div>
+          
 
           </div>
 

@@ -148,6 +148,30 @@ function TeamSection({ title, subtitle, members }: SectionProps) {
 }
 
 export default function Secretariat() {
+  
+  const schoolLeadership: TeamMember[] = [
+    {
+      name: 'Ms. Bonny',
+      role: 'Principal',
+      bio: 'Principal of the institution, providing overall leadership and vision for the conference.',
+      email: '',
+      image: '/secretariat/bonny.jpg', // add image
+    },
+    {
+      name: 'Ms. Suparna',
+      role: 'Vice Principal',
+      bio: 'Supports institutional leadership and oversees academic coordination.',
+      email: '',
+      image: '/secretariat/suparna.jpg',
+    },
+    {
+      name: 'Ms. Srushti Vora',
+      role: 'MUN In-charge',
+      bio: 'Leads and supervises all MUN-related activities and execution.',
+      email: '',
+      image: '/secretariat/srushti.jpg',
+    },
+  ];
 
   const secretariesGenerals: TeamMember[] = [
     {
@@ -268,21 +292,21 @@ export default function Secretariat() {
     {
       name: 'Ms. Arpita Rautaray',
       role: 'Delegate Affairs & IPC',
-      bio: 'Oversees academic guidance and ensures smooth coordination with the school administration.',
+      bio: 'Overseeing delegate coordination and allotments. Also manages inter-personal coordination and smooth functioning during sessions.',
       email: 'arpita.rautaray@chembur.tgaa.in',
       image: '/secretariat/Arpita_Rautaray.png',
     },
     {
       name: 'Ms. Jyoti Singh',
-      role: 'Design & Layout',
-      bio: 'Supports logistics, student coordination, and overall execution of the conference.',
+      role: 'Training Development & Design-Layout',
+      bio: 'Planning and conducting training sessions, as well as curating academic content and overseeing the design and structure of conference materials. ',
       email: 'jyoti.singh@chembur.tgaa.in',
       image: '/secretariat/Jyoti_Singh.jpg',
     },
     {
       name: 'Ms. Abhijeet Khalsa',
-      role: 'Logistics',
-      bio: 'Provides mentorship and supervises planning and operations.',
+      role: 'PR & Logistics',
+      bio: 'Handles external communication, outreach, and publicity, along with managing on-ground logistics and operational arrangements for the event. ',
       email: 'abhijeet.khalsa@chembur.tgaa.in',
       image: '/secretariat/Abhijeet_Khalsa.jpg',
     },
@@ -341,13 +365,14 @@ export default function Secretariat() {
   </div>
 </section>
 
+      <TeamSection title="Institutional/MUN Heads" subtitle="School Leadership" members={schoolLeadership} />
+      <TeamSection title="Teachers in Charge" subtitle="Faculty Advisors" members={teachersInCharge}/>
       <TeamSection title="The Secretariat" subtitle="Executive Leadership" members={secretariesGenerals} />
       <TeamSection title="Delegate Affairs" subtitle="Under Secretary Generals" members={delegateAffairs} />
       <TeamSection title="Logistics" subtitle="Under Secretary Generals" members={logistics} />
       <TeamSection title="Public Relations" subtitle="Under Secretary Generals" members={publicRelations} />
       <TeamSection title="International Press" subtitle="Under Secretary Generals" members={internationalPress} />
       <TeamSection title="Design & Layout" subtitle="Under Secretary Generals" members={designLayout} />
-      <TeamSection title="Teachers in Charge" subtitle="Faculty Advisors" members={teachersInCharge}/>
       <style jsx>{`
       .mail-btn {
         color: var(--green);

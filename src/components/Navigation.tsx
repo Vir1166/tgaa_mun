@@ -21,7 +21,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
   const navItems = [
     { name: 'About', id: 'about' },
     { name: 'Committees', id: 'committees' },
-    { name: 'Core OC', id: 'secretariat' },
+    { name: 'Leadership & OC', id: 'secretariat' },
     { name: 'Resources', id: 'resources' },
     { name: 'FAQ', id: 'faq' },
     { name: 'Contact', id: 'contact' },
