@@ -169,7 +169,7 @@ export default function Secretariat() {
       role: 'MUN In-charge',
       bio: 'Leads and supervises all MUN-related activities and execution.',
       email: '',
-      image: '/secretariat/srushti.jpg',
+      image: '/secretariat/Srushti_Vora.jpeg',
     },
   ];
 
