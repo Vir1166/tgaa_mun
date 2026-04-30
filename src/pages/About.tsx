@@ -155,7 +155,7 @@ export default function About({ onNavigate }: AboutProps) {
               fontSize: '0.85rem',
             }}
           >
-            REGISTER FOR TGAA MUN 2026 →
+            REGISTER FOR TGAA MUN 2.0 →
           </button>
         </div>
       </section>

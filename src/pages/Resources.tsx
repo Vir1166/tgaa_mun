@@ -1,204 +1,305 @@
-import { FileText, ExternalLink, BookOpen, Video } from 'lucide-react';
+import { FileText, ExternalLink, BookOpen, Video, FileDown, ArrowRight } from 'lucide-react';
+
+type ResourceItem = {
+  title: string;
+  category: 'Background Guides' | 'Conference Documents' | 'Videos';
+  icon: typeof FileText;
+  link?: string;
+  accent: string;
+  image?: string;
+  description?: string;
+};
+
+const bgGuides: ResourceItem[] = [
+  {
+    title: 'DISEC',
+    category: 'Background Guides',
+    icon: FileText,
+    link: 'https://docs.google.com/document/d/1T0ALwC2N4X1w4ZNoeTn_Redx-QEwNdG95ZAVTzLJaNA/edit?usp=sharing',
+    accent: '#60a5fa',
+    image: '/committee_images/1.jpg',
+  },
+  {
+    title: 'UNSC',
+    category: 'Background Guides',
+    icon: FileText,
+    link: 'https://docs.google.com/document/d/1UxhaHyNzoyn2o2mwmbF9oRoc78ZHU4gyL2LTmjqnGQ/edit?usp=sharing',
+    accent: '#f59e0b',
+    image: '/committee_images/2.jpg',
+  },
+  {
+    title: 'HCCC',
+    category: 'Background Guides',
+    icon: FileText,
+    link: 'https://docs.google.com/document/d/1SjM4owuFVhNFZ05zY9pHhkOMis4-hH8rIwLaI0i5bzY/edit?usp=sharing',
+    accent: '#f87171',
+    image: '/committee_images/3.jpg',
+  },
+  {
+    title: 'UNICEF',
+    category: 'Background Guides',
+    icon: FileText,
+    link: 'https://docs.google.com/document/d/19so3VS3q4XVBkZU39wb4UONRA6xJKcxCjH0F1NTswAw/edit?usp=sharing',
+    accent: '#4ade80',
+    image: '/committee_images/4.jpg',
+  },
+  {
+    title: 'SOCHUM',
+    category: 'Background Guides',
+    icon: FileText,
+    link: 'https://docs.google.com/document/d/16ntTMItwB2yt3xDBu5ot69A4JUB7cqGn/edit?usp=sharing&ouid=115829638213049318520&rtpof=true&sd=true',
+    accent: '#a78bfa',
+    image: '/committee_images/5.jpg',
+  },
+];
+
+const conferenceDocs: ResourceItem[] = [
+  {
+    title: 'Rules of Procedure',
+    description: 'Complete guide to parliamentary procedure and debate format.',
+    category: 'Conference Documents',
+    icon: BookOpen,
+    link: 'https://drive.google.com/file/d/13thcmr0PkxbGTK-CsPAL-seoHWLJXYuN/view',
+    accent: '#ffffff',
+  },
+  {
+    title: 'Press Release',
+    description: 'How to write an effective position paper with examples.',
+    category: 'Conference Documents',
+    icon: BookOpen,
+    link: 'https://drive.google.com/file/d/XXXX/view',
+    accent: '#ffffff',
+  },
+  {
+    title: 'Brochure',
+    description: 'Everything you need to know about TGAA MUN 2026.',
+    category: 'Conference Documents',
+    icon: BookOpen,
+    link: 'https://drive.google.com/file/d/17zCXaRqjVeplLQ4XBRyBZzWzNAI3hSha/view',
+    accent: '#ffffff',
+  },
+  {
+    title: 'FAQs',
+    description: 'Go through these questions to clear any doubts.',
+    category: 'Conference Documents',
+    icon: BookOpen,
+    link: 'https://docs.google.com/document/d/1GPBH_uhv_mlUi116_N_eU9o4_LAuP9lFxTjLGgWU81g/edit?tab=t.0#heading=h.t6asvexs5y3j',
+    accent: '#ffffff',
+  },
+];
+
+function GuideCard({ item }: { item: ResourceItem }) {
+  return (
+    <div
+      className="flex overflow-hidden clip-corner"
+      style={{
+        width: '350px',
+        border: `1px solid ${item.accent}2A`,
+        background: 'var(--navy-card)',
+        minHeight: '150px',
+      }}
+    >
+      <div
+        className="relative flex-shrink-0 overflow-hidden"
+        style={{
+          width: '150px',
+          minWidth: '150px',
+          background: 'rgba(8,12,24,0.95)',
+        }}
+      >
+        <img
+          src={item.image}
+          alt={item.title}
+          className="absolute inset-0 h-full w-full object-cover"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).style.display = 'none';
+          }}
+        />
+      </div>
+
+      <div
+        className="relative flex min-w-0 flex-1 flex-col justify-center px-5 py-4"
+        style={{
+          background: `
+            radial-gradient(ellipse at 90% 20%, ${item.accent}16 0%, transparent 55%),
+            linear-gradient(135deg, rgba(12,18,36,0.98) 0%, rgba(8,13,26,1) 100%)
+          `,
+        }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{
+            backgroundImage: `
+              linear-gradient(${item.accent} 1px, transparent 1px),
+              linear-gradient(90deg, ${item.accent} 1px, transparent 1px)
+            `,
+            backgroundSize: '22px 22px',
+          }}
+        />
+        <div
+          className="absolute top-0 left-0 right-0 h-0.5"
+          style={{ background: `linear-gradient(to right, ${item.accent}90, transparent 60%)` }}
+        />
+
+        <div className="relative z-10 flex flex-col items-start gap-3">
+          <h3
+            className="font-display font-bold text-2xl sm:text-3xl leading-none"
+            style={{ color: 'var(--cream)' }}
+          >
+            {item.title}
+          </h3>
+
+          <button
+            onClick={() => item.link && window.open(item.link, '_blank')}
+            className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold transition-all"
+            style={{
+              background: `${item.accent}18`,
+              color: item.accent,
+              border: `1px solid ${item.accent}4D`,
+              fontFamily: 'DM Mono, monospace',
+              letterSpacing: '0.05em',
+              borderRadius: '2px',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.background = item.accent;
+              (e.currentTarget as HTMLElement).style.color = 'white';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.background = `${item.accent}18`;
+              (e.currentTarget as HTMLElement).style.color = item.accent;
+            }}
+          >
+            OPEN <ArrowRight size={12} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PlainDocCard({ item }: { item: ResourceItem }) {
+  return (
+    <div
+      className="clip-corner p-6"
+      style={{
+        background: 'var(--navy-card)',
+        border: '1px solid rgba(255,255,255,0.06)',
+      }}
+    >
+      <item.icon size={18} style={{ color: 'var(--green)' }} className="mb-4" />
+      <h3 className="font-semibold text-sm mb-1" style={{ color: 'var(--cream)' }}>
+        {item.title}
+      </h3>
+      <p className="text-xs mb-4" style={{ color: 'var(--muted)' }}>
+        {item.description}
+      </p>
+
+      <button
+        onClick={() => item.link && window.open(item.link, '_blank')}
+        className="text-xs flex items-center gap-2"
+        style={{ color: 'var(--green)' }}
+      >
+        <ExternalLink size={12} /> OPEN
+      </button>
+    </div>
+  );
+}
 
 export default function Resources() {
-
-  const documents = [
-    {
-      title: 'DISEC Study Guide',
-      description: 'Comprehensive guide on regulating autonomous weapons systems',
-      category: 'Background Guides',
-      icon: FileText,
-      link: 'https://docs.google.com/document/d/1T0ALwC2N4X1w4ZNoeTn_Redx-QEwNdG95ZAVTzLJaNA/edit?usp=sharing'
-    },
-    {
-      title: 'UNSC Study Guide',
-      description: 'Analysis of Middle Eastern conflicts and security challenges',
-      category: 'Background Guides',
-      icon: FileText,
-      link: 'https://docs.google.com/document/d/1UxhaHyNzoyn2o2mwmbF9oRYoc78ZHU4gyL2LTmjqnGQ/edit?usp=sharing'
-    },
-    {
-      title: 'HCCC Study Guide',
-      description: 'Historical context and crisis briefing for Cuban Missile Crisis',
-      category: 'Background Guides',
-      icon: FileText,
-      link: 'https://docs.google.com/document/d/1SjM4owuFVhNFZ05zY9pHhkOMis4-hH8rIwLaI0i5bzY/edit?usp=sharing'
-    },
-    {
-      title: 'SOCHUM Study Guide',
-      description: 'Digital rights, privacy, and surveillance in the modern era',
-      category: 'Background Guides',
-      icon: FileText,
-      link: 'https://docs.google.com/document/d/16ntTMItwB2yt3xDBu5ot69A4JUB7cqGn/edit?usp=sharing&ouid=115829638213049318520&rtpof=true&sd=true'
-    },
-    {
-      title: 'UNICEF Study Guide',
-      description: 'Marine plastic pollution and environmental solutions',
-      category: 'Background Guides',
-      icon: FileText,
-      link: 'https://docs.google.com/document/d/19so3VS3q4XVBkZU39wb4UONRA6xJKcxCjH0F1NTswAw/edit?usp=sharing'
-    },
-    {
-      title: 'Rules of Procedure',
-      description: 'Complete guide to parliamentary procedure and debate format',
-      category: 'Conference Documents',
-      icon: BookOpen,
-      link: 'https://drive.google.com/file/d/13thcmr0PkxbGTK-CsPAL-seoHWLJXYuN/view'
-    },
-    {
-      title: 'Press Release',
-      description: 'How to write an effective position paper with examples',
-      category: 'Conference Documents',
-      icon: BookOpen,
-      link: 'https://drive.google.com/file/d/XXXX/view'
-    },
-    {
-      title: 'Brochure',
-      description: 'Everything you need to know about TGAA MUN 2026',
-      category: 'Conference Documents',
-      icon: BookOpen,
-      link: 'https://drive.google.com/file/d/17zCXaRqjVeplLQ4XBRyBZzWzNAI3hSha/view'
-    },
-    {
-      title: 'FAQs',
-      description: 'Go through these questions to clear any doubts',
-      category: 'Conference Documents',
-      icon: BookOpen,
-      link: 'https://docs.google.com/document/d/1GPBH_uhv_mlUi116_N_eU9o4_LAuP9lFxTjLGgWU81g/edit?tab=t.0#heading=h.t6asvexs5y3j'
-    },
-  ];
-
-  const videos = [
-    { title: 'Introduction to MUN', description: 'Learn the basics of Model United Nations' },
-    { title: 'Public Speaking Tips', description: 'Master the art of speaking in committee' },
-    { title: 'Writing Position Papers', description: 'Step-by-step guide to crafting winning position papers' },
-  ];
-
-  const bgGuides = documents.filter((d) => d.category === 'Background Guides');
-  const confDocs = documents.filter((d) => d.category === 'Conference Documents');
-
-  const handleDownload = (link) => {
-    window.open(link, '_blank');
-  };
-
   return (
     <div className="min-h-screen" style={{ background: 'var(--navy)' }}>
-      
-      {/* ── HEADER ── */}
-<section
-  className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
-  style={{
-    backgroundImage: `url("/other_pics/Resources.jpeg")`, // paste image here
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-  }}
->
-  {/* Overlay */}
-  <div
-    className="absolute inset-0"
-    style={{ background: 'rgba(10, 15, 30, 0.7)' }}
-  />
+      <section
+        className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
+        style={{
+          backgroundImage: `url("/other_pics/Resources.jpeg")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="absolute inset-0" style={{ background: 'rgba(10, 15, 30, 0.72)' }} />
+        <div
+          className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, var(--green) 0%, transparent 70%)',
+            transform: 'translate(30%, -30%)',
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
+            TGAA MUN 2026
+          </p>
+          <h1
+            className="font-display font-black text-6xl sm:text-8xl leading-none mb-8"
+            style={{ color: 'var(--cream)' }}
+          >
+            Delegate<br />
+            <span className="italic" style={{ color: 'var(--green)' }}>
+              Resources
+            </span>
+          </h1>
+          <div className="h-px max-w-sm mb-6" style={{ background: 'rgba(31,158,92,0.4)' }} />
+          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: 'var(--muted)' }}>
+            Study guides, conference documents, and support material to help you prepare properly.
+          </p>
+        </div>
+      </section>
 
-  <div
-    className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none"
-    style={{
-      background: 'radial-gradient(circle, var(--green) 0%, transparent 70%)',
-      transform: 'translate(30%, -30%)',
-    }}
-  />
-
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
-      TGAA MUN 2026
-    </p>
-    <h1
-      className="font-display font-black text-6xl sm:text-8xl leading-none mb-8"
-      style={{ color: 'var(--cream)' }}
-    >
-      Delegate<br />
-      <span className="italic" style={{ color: 'var(--green)' }}>
-        Resources
-      </span>
-    </h1>
-    <div
-      className="h-px max-w-sm mb-6"
-      style={{ background: 'rgba(31,158,92,0.4)' }}
-    />
-    <p
-      className="text-lg max-w-2xl leading-relaxed"
-      style={{ color: 'var(--muted)' }}
-    >
-      Everything you need to prepare for an exceptional conference experience.
-    </p>
-  </div>
-</section>
-
-      {/* BACKGROUND GUIDES */}
+      {/* STUDY GUIDES */}
       <section className="py-24" style={{ background: 'var(--navy-mid)' }}>
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex flex-wrap justify-center gap-5 items-stretch">
-            {bgGuides.map((doc, i) => (
-              <div key={i} className="clip-corner transition-all group w-full sm:w-[48%] lg:w-[30%] flex min-h-[240px]"
-                style={{ background: 'var(--navy-card)', border: '1px solid rgba(31,158,92,0.1)' }}>
-                
-                <div className="p-6 flex flex-col w-full h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <doc.icon size={20} style={{ color: 'var(--green)' }} />
-                  </div>
+        <h2
+  className="font-display font-bold text-4xl mb-12 text-center w-full"
+  style={{ color: 'var(--cream)' }}
+>
+  Study Guides
+</h2>
 
-                  <div className="flex flex-col flex-grow">
-                    <h3 className="font-semibold text-base mb-1" style={{ color: 'var(--cream)' }}>
-                      {doc.title}
-                    </h3>
-                    <p className="text-xs mb-4 flex-grow" style={{ color: 'var(--muted)' }}>
-                      {doc.description}
-                    </p>
-                  </div>
+          <div className="flex flex-col items-center gap-5">
+  {/* First row (3 cards) */}
+  <div className="flex gap-5">
+    {bgGuides.slice(0, 3).map((doc) => (
+      <GuideCard key={doc.title} item={doc} />
+    ))}
+  </div>
 
-                  <button
-                    onClick={() => handleDownload(doc.link)}
-                    className="flex items-center gap-2 text-xs mt-auto"
-                    style={{ color: 'var(--green)' }}
-                  >
-                    <ExternalLink size={12} /> OPEN
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+  {/* Second row (2 cards) */}
+  <div className="flex gap-5">
+    {bgGuides.slice(3, 5).map((doc) => (
+      <GuideCard key={doc.title} item={doc} />
+    ))}
+  </div>
+</div>
         </div>
       </section>
 
-      {/* CONFERENCE DOCS */}
+      {/* CONFERENCE DOCUMENTS */}
       <section className="py-24" style={{ background: 'var(--navy)' }}>
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div
+              className="w-10 h-10 flex items-center justify-center clip-corner"
+              style={{ background: 'rgba(31,158,92,0.12)', color: 'var(--green)' }}
+            >
+              <BookOpen size={16} />
+            </div>
+            <p className="tag-label" style={{ color: 'var(--green)' }}>
+              Conference Documents
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {confDocs.map((doc, i) => (
-              <div key={i} className="p-6 clip-corner" style={{ background: 'var(--navy-card)' }}>
-                <doc.icon size={18} style={{ color: 'var(--green)' }} className="mb-4" />
-                <h3 className="font-semibold text-sm mb-1" style={{ color: 'var(--cream)' }}>
-                  {doc.title}
-                </h3>
-                <p className="text-xs mb-4" style={{ color: 'var(--muted)' }}>
-                  {doc.description}
-                </p>
+          <h2 className="font-display font-bold text-4xl mb-12" style={{ color: 'var(--cream)' }}>
+            Official Materials
+          </h2>
 
-                <button
-                  onClick={() => handleDownload(doc.link)}
-                  className="text-xs flex items-center gap-2"
-                  style={{ color: 'var(--green)' }}
-                >
-                  <ExternalLink size={12} /> OPEN
-                </button>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {conferenceDocs.map((doc) => (
+              <PlainDocCard key={doc.title} item={doc} />
             ))}
           </div>
         </div>
       </section>
-
     </div>
   );
 }

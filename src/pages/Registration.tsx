@@ -19,7 +19,7 @@ export default function Registration() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
-            Secure Your Spot
+            Secure Your Spot!
           </p>
 
           <h1

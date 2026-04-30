@@ -25,6 +25,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     { name: 'Resources', id: 'resources' },
     { name: 'FAQ', id: 'faq' },
     { name: 'Contact', id: 'contact' },
+    { name: 'Press', id: 'press' },
   ];
 
   const handleNavigate = (page: string) => {
