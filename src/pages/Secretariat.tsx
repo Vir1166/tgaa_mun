@@ -365,7 +365,7 @@ export default function Secretariat() {
   </div>
 </section>
 
-      <TeamSection title="Institutional/MUN Heads" subtitle="School Leadership" members={schoolLeadership} />
+      <TeamSection title="MUN Heads" subtitle="School Leadership" members={schoolLeadership} />
       <TeamSection title="Teachers in Charge" subtitle="Faculty Advisors" members={teachersInCharge}/>
       <TeamSection title="The Secretariat" subtitle="Executive Leadership" members={secretariesGenerals} />
       <TeamSection title="Delegate Affairs" subtitle="Under Secretary Generals" members={delegateAffairs} />

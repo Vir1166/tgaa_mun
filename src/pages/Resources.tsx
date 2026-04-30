@@ -15,7 +15,7 @@ const bgGuides: ResourceItem[] = [
     title: 'DISEC',
     category: 'Background Guides',
     icon: FileText,
-    link: 'https://docs.google.com/document/d/1T0ALwC2N4X1w4ZNoeTn_Redx-QEwNdG95ZAVTzLJaNA/edit?usp=sharing',
+    link: '',
     accent: '#60a5fa',
     image: '/committee_images/1.jpg',
   },
@@ -23,7 +23,7 @@ const bgGuides: ResourceItem[] = [
     title: 'UNSC',
     category: 'Background Guides',
     icon: FileText,
-    link: 'https://docs.google.com/document/d/1UxhaHyNzoyn2o2mwmbF9oRoc78ZHU4gyL2LTmjqnGQ/edit?usp=sharing',
+    link: '',
     accent: '#f59e0b',
     image: '/committee_images/2.jpg',
   },
@@ -31,7 +31,7 @@ const bgGuides: ResourceItem[] = [
     title: 'HCCC',
     category: 'Background Guides',
     icon: FileText,
-    link: 'https://docs.google.com/document/d/1SjM4owuFVhNFZ05zY9pHhkOMis4-hH8rIwLaI0i5bzY/edit?usp=sharing',
+    link: '',
     accent: '#f87171',
     image: '/committee_images/3.jpg',
   },
@@ -39,7 +39,7 @@ const bgGuides: ResourceItem[] = [
     title: 'UNICEF',
     category: 'Background Guides',
     icon: FileText,
-    link: 'https://docs.google.com/document/d/19so3VS3q4XVBkZU39wb4UONRA6xJKcxCjH0F1NTswAw/edit?usp=sharing',
+    link: '',
     accent: '#4ade80',
     image: '/committee_images/4.jpg',
   },
@@ -47,7 +47,7 @@ const bgGuides: ResourceItem[] = [
     title: 'SOCHUM',
     category: 'Background Guides',
     icon: FileText,
-    link: 'https://docs.google.com/document/d/16ntTMItwB2yt3xDBu5ot69A4JUB7cqGn/edit?usp=sharing&ouid=115829638213049318520&rtpof=true&sd=true',
+    link: '',
     accent: '#a78bfa',
     image: '/committee_images/5.jpg',
   },
@@ -231,7 +231,7 @@ export default function Resources() {
   className="font-display font-bold text-4xl mb-12 text-center w-full"
   style={{ color: 'var(--cream)' }}
 >
-  Study Guides
+  Study Guides - Coming Soon
 </h2>
 
           <div className="flex flex-col items-center gap-5">
