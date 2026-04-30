@@ -151,14 +151,14 @@ export default function Secretariat() {
   
   const schoolLeadership: TeamMember[] = [
     {
-      name: 'Ms. Bonny',
+      name: 'Ms. Bonny Bhansali',
       role: 'Principal',
       bio: 'Principal of the institution, providing overall leadership and vision for the conference.',
       email: '',
       image: '/secretariat/Principal.png', 
     },
     {
-      name: 'Ms. Suparna',
+      name: 'Ms. Suparna Mukherjee',
       role: 'Vice Principal',
       bio: 'Supports institutional leadership and oversees academic coordination.',
       email: '',

@@ -54,22 +54,7 @@ const bgGuides: ResourceItem[] = [
 ];
 
 const conferenceDocs: ResourceItem[] = [
-  {
-    title: 'Rules of Procedure',
-    description: 'Complete guide to parliamentary procedure and debate format.',
-    category: 'Conference Documents',
-    icon: BookOpen,
-    link: 'https://drive.google.com/file/d/13thcmr0PkxbGTK-CsPAL-seoHWLJXYuN/view',
-    accent: '#ffffff',
-  },
-  {
-    title: 'Press Release',
-    description: 'How to write an effective position paper with examples.',
-    category: 'Conference Documents',
-    icon: BookOpen,
-    link: 'https://drive.google.com/file/d/XXXX/view',
-    accent: '#ffffff',
-  },
+
   {
     title: 'Brochure',
     description: 'Everything you need to know about TGAA MUN 2026.',
@@ -78,14 +63,7 @@ const conferenceDocs: ResourceItem[] = [
     link: 'https://drive.google.com/file/d/17zCXaRqjVeplLQ4XBRyBZzWzNAI3hSha/view',
     accent: '#ffffff',
   },
-  {
-    title: 'FAQs',
-    description: 'Go through these questions to clear any doubts.',
-    category: 'Conference Documents',
-    icon: BookOpen,
-    link: 'https://docs.google.com/document/d/1GPBH_uhv_mlUi116_N_eU9o4_LAuP9lFxTjLGgWU81g/edit?tab=t.0#heading=h.t6asvexs5y3j',
-    accent: '#ffffff',
-  },
+ 
 ];
 
 function GuideCard({ item }: { item: ResourceItem }) {
@@ -290,7 +268,7 @@ export default function Resources() {
           </div>
 
           <h2 className="font-display font-bold text-4xl mb-12" style={{ color: 'var(--cream)' }}>
-            Official Materials
+            Official Materials - More Coming Soon
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">

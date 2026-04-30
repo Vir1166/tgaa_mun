@@ -1002,7 +1002,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 </div>
               </div>
               <p className="text-center mt-10 text-sm" style={{ color: 'var(--muted)' }}>
-                Registration closes <span style={{ color: 'var(--cream)' }}>June 1, 2026</span>
+                Registration closes <span style={{ color: 'var(--cream)' }}>May 15, 2026</span>
               </p>
             </>
           )}
@@ -1268,7 +1268,7 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="absolute inset-0 hero-grid-bg opacity-10 pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="tag-label mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            Registration closes June 1, 2026
+            Registration closes May 15, 2026
           </p>
           <h2 className="font-display font-black text-5xl sm:text-6xl text-white mb-6 leading-tight">
             Ready to make<br />

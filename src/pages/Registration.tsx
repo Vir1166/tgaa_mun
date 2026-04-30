@@ -38,7 +38,7 @@ export default function Registration() {
           />
 
           <p className="text-lg max-w-2xl" style={{ color: 'var(--muted)' }}>
-            Complete your registration using the form below. Registration closes June 1, 2026.
+            Complete your registration using the form below. Registration closes May 15, 2026.
           </p>
         </div>
       </section>
@@ -64,7 +64,7 @@ export default function Registration() {
             </h2>
 
             <p className="text-sm mb-10" style={{ color: 'var(--muted)' }}>
-              Fill out the official registration form to confirm your participation.
+              Fill out the official registration form to confirm your participation by <b>May 15</b>.
             </p>
 
             <a
