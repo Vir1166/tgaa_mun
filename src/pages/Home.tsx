@@ -1033,7 +1033,7 @@ export default function Home({ onNavigate }: HomeProps) {
     }}
   >
     <iframe
-      src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
+      src="https://www.youtube.com/embed/UW0HyjgDH3w?rel=0&modestbranding=1"
       title="TGAAMUN 2.0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
