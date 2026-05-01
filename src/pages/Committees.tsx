@@ -101,7 +101,7 @@ export default function Committees() {
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>TGAA MUN 2026</p>
+          <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>TGAAMUN 2.0</p>
           <h1 className="font-display font-black text-6xl sm:text-8xl leading-none mb-8" style={{ color: 'var(--cream)' }}>
             Our<br />
             <span className="italic" style={{ color: 'var(--green)' }}>Committees</span>
@@ -109,7 +109,7 @@ export default function Committees() {
           <div className="h-px max-w-sm mb-6" style={{ background: 'rgba(31,158,92,0.4)' }} />
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: 'var(--muted)' }}>
             Five diverse committees covering the most pressing global challenges,
-            from international security to environmental sustainability.
+            from international security and environmental sustainability to humanitarian action and child rights.
           </p>
         </div>
       </section>

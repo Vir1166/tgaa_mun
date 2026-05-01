@@ -42,7 +42,7 @@ export default function About({ onNavigate }: AboutProps) {
             style={{ color: 'var(--cream)' }}
           >
             About<br />
-            <span className="italic" style={{ color: 'var(--green)' }}>TGAA MUN</span>
+            <span className="italic" style={{ color: 'var(--green)' }}>TGAAMUN</span>
           </h1>
           <div className="h-px max-w-sm mb-6" style={{ background: 'rgba(31,158,92,0.4)' }} />
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: 'var(--muted)' }}>
@@ -58,7 +58,7 @@ export default function About({ onNavigate }: AboutProps) {
             <div>
               <h2 className="font-display font-bold text-4xl mb-8 leading-tight" style={{ color: 'var(--cream)' }}>
                 What is<br />
-                <span className="italic" style={{ color: 'var(--green)' }}>TGAA MUN?</span>
+                <span className="italic" style={{ color: 'var(--green)' }}>TGAAMUN?</span>
               </h2>
               <div className="space-y-5 text-base leading-relaxed" style={{ color: 'var(--muted)' }}>
                 <p>The Global Affairs Assembly Model United Nations is a distinguished international relations conference that simulates the workings of the United Nations and other multilateral bodies.</p>
@@ -155,7 +155,7 @@ export default function About({ onNavigate }: AboutProps) {
               fontSize: '0.85rem',
             }}
           >
-            REGISTER FOR TGAA MUN 2.0 →
+            REGISTER FOR TGAAMUN 2.0 →
           </button>
         </div>
       </section>

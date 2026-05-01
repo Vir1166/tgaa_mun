@@ -41,7 +41,7 @@ export default function Press({ onNavigate }: PressProps) {
       <section
         className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
         style={{
-          backgroundImage: 'url("/other_pics/About.jpeg")',
+          backgroundImage: 'url("/other_pics/Press.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -68,7 +68,7 @@ export default function Press({ onNavigate }: PressProps) {
           </h1>
           <div className="h-px max-w-sm mb-6" style={{ background: 'rgba(31,158,92,0.4)' }} />
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: 'var(--muted)' }}>
-            Relive the moments, debates, and diplomacy that defined TGAA MUN — through images, coverage, and stories from the floor.
+            Relive the moments, debates, and diplomacy that defined TGAAMUN — through images, coverage, and stories from the floor.
           </p>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default function Press({ onNavigate }: PressProps) {
               Coming Soon!
             </p>
             <p className="text-base max-w-md leading-relaxed" style={{ color: 'var(--muted)' }}>
-              Articles, op-eds, and press coverage from TGAA MUN are on their way.
+              Articles, op-eds, and press coverage from TGAAMUN are on their way.
               Check back here soon.
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function Press({ onNavigate }: PressProps) {
             Be Part of the Story
           </h2>
           <p className="text-lg mb-10 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Register for TGAA MUN 2.0 and create the moments that will fill next year's gallery.
+            Register for TGAAMUN 2.0 and create the moments that will fill next year's gallery.
           </p>
           <button
             onClick={() => onNavigate('register')}
@@ -184,7 +184,7 @@ export default function Press({ onNavigate }: PressProps) {
               fontSize: '0.85rem',
             }}
           >
-            REGISTER FOR TGAA MUN 2.0 →
+            REGISTER FOR TGAAMUN 2.0 →
           </button>
         </div>
       </section>

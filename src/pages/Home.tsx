@@ -364,7 +364,7 @@ function ScrollIntro() {
               marginBottom: '2rem',
             }}
           >
-            TGAA MUN 2.0 · THEME
+            TGAAMUN 2.0 · THEME
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -525,7 +525,7 @@ function ScrollIntro() {
           </div>
         </div>
 
-        {/* ── SLIDE 4: TGAA MUN 2026 ── */}
+        {/* ── SLIDE 4: TGAAMUN 2.0 2026 ── */}
         <div
           style={{
             position: 'absolute',
@@ -764,7 +764,7 @@ export default function Home({ onNavigate }: HomeProps) {
     },
     {
       quote:
-        'In my first experience as a delegate to the TGAA MUN last year, the event was challenging but exciting for me. At first, I was intimidated, but soon I got used to the process. Being involved in debates, negotiations, and collaborations allowed me to gain confidence in my ability to communicate effectively.',
+        'In my first experience as a delegate to the TGAAMUN 2.0 last year, the event was challenging but exciting for me. At first, I was intimidated, but soon I got used to the process. Being involved in debates, negotiations, and collaborations allowed me to gain confidence in my ability to communicate effectively.',
       author: 'Dishant Mehta',
       role: 'Delegate, HCCC 2025',
     },
@@ -951,9 +951,40 @@ export default function Home({ onNavigate }: HomeProps) {
                 </span>
               )}
               <p className="tag-label" style={{ color: 'var(--green)' }}>
-                TGAA MUN 2.0 · July 31 - Aug 1
+                TGAAMUN 2.0 · July 31 - Aug 1
               </p>
             </div>
+
+            {/* ── YOUTUBE EMBED ── */}
+<div style={{ maxWidth: '960px', margin: '0 auto 3.5rem' }}>
+  <div
+    style={{
+      position: 'relative',
+      paddingBottom: '56.25%', // 16:9
+      height: 0,
+      overflow: 'hidden',
+      borderRadius: '12px',
+      border: '1px solid rgba(31,158,92,0.2)',
+      boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+    }}
+  >
+    <iframe
+      src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
+      title="TGAAMUN 2.0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        border: 'none',
+        borderRadius: '11px',
+      }}
+    />
+  </div>
+</div>
 
             {phase === 'countdown' && (
               <>
@@ -1106,7 +1137,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
-                What is TGAA MUN?
+                What is TGAAMUN 2.0?
               </p>
               <h2
                 className="font-display font-bold text-5xl leading-tight mb-8"
@@ -1175,7 +1206,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
             {[
               {
                 icon: MessageSquare,
@@ -1191,6 +1222,11 @@ export default function Home({ onNavigate }: HomeProps) {
                 icon: Award,
                 title: 'Leadership Growth',
                 desc: 'Build confidence, leadership skills, and forge lasting connections with peers who share your passion.',
+              },
+              {
+                icon: Users,
+                title: '21st Century Skills',
+                desc: 'Sharpen collaboration, critical thinking, creativity, and communication — the four pillars of modern global citizenship.',
               },
             ].map(({ icon: Icon, title, desc }) => (
               <div
@@ -1288,7 +1324,7 @@ export default function Home({ onNavigate }: HomeProps) {
               fontSize: '0.85rem',
             }}
           >
-            REGISTER FOR TGAA MUN 2.0 →
+            REGISTER FOR TGAAMUN 2.0 →
           </button>
         </div>
       </section>

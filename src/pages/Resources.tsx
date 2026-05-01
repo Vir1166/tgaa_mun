@@ -57,7 +57,7 @@ const conferenceDocs: ResourceItem[] = [
 
   {
     title: 'Brochure',
-    description: 'Everything you need to know about TGAA MUN 2026.',
+    description: 'Everything you need to know about TGAAMUN 2.0.',
     category: 'Conference Documents',
     icon: BookOpen,
     link: 'https://drive.google.com/file/d/17zCXaRqjVeplLQ4XBRyBZzWzNAI3hSha/view',
@@ -205,7 +205,7 @@ export default function Resources() {
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
-            TGAA MUN 2026
+            TGAAMUN 2.0
           </p>
           <h1
             className="font-display font-black text-6xl sm:text-8xl leading-none mb-8"

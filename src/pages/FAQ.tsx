@@ -99,7 +99,7 @@ export default function FAQ() {
       <section
         className="pt-32 pb-20 relative overflow-hidden hero-grid-bg"
         style={{
-          backgroundImage: `url("/other_pics/Resources.jpeg")`,
+          backgroundImage: `url("/other_pics/FAQ.jpeg")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -111,7 +111,7 @@ export default function FAQ() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <p className="tag-label mb-4" style={{ color: 'var(--green)' }}>
-            TGAA MUN 2026
+            TGAAMUN 2.0
           </p>
           <h1
             className="font-display font-black text-6xl sm:text-8xl leading-none mb-8"
