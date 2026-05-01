@@ -63,7 +63,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               className="font-display font-bold text-lg tracking-tight"
               style={{ color: 'var(--cream)' }}
             >
-              TGAA <span style={{ color: 'var(--green)' }}>MUN 2.0</span>
+              TGAA<span style={{ color: 'var(--green)' }}>MUN 2.0</span>
             </span>
 
             <span

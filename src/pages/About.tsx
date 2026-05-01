@@ -10,6 +10,7 @@ export default function About({ onNavigate }: AboutProps) {
     { icon: BookOpen, title: 'Research', description: 'Develop deep expertise in global affairs and international policy.' },
     { icon: TrendingUp, title: 'Public Speaking', description: 'Enhance confidence and articulation in high-pressure formal settings.' },
     { icon: Globe, title: 'Global Awareness', description: 'Understand diverse perspectives and the nuances of cultural diplomacy.' },
+    { icon: Users, title: '21st Century Skills', description: 'Sharpen collaboration, critical thinking, creativity, and communication — the four pillars of modern global citizenship.', }
   ];
 
   return (
@@ -120,7 +121,7 @@ export default function About({ onNavigate }: AboutProps) {
             <p className="tag-label mb-3" style={{ color: 'var(--green)' }}>Skills You'll Gain</p>
             <h2 className="font-display font-bold text-4xl" style={{ color: 'var(--cream)' }}>Why Participate?</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {skills.map(({ icon: Icon, title, description }, i) => (
               <div key={i} className="p-8 clip-corner transition-all group" style={{ background: 'var(--navy-card)', border: '1px solid rgba(31,158,92,0.1)' }}>
                 <div className="w-12 h-12 flex items-center justify-center clip-corner mb-6 transition-all group-hover:opacity-90" style={{ background: 'rgba(31,158,92,0.12)', color: 'var(--green)' }}>

@@ -755,6 +755,18 @@ export default function Home({ onNavigate }: HomeProps) {
     { icon: Award, label: 'Committees', value: '5 Committees' },
   ];
 
+  const siteIndex = [
+    { label: 'Home', page: 'home', desc: 'Main landing page' },
+    { label: 'About', page: 'about', desc: 'About the conference' },
+    { label: 'Committees', page: 'committees', desc: 'Committee details' },
+    { label: 'Leadership & OC', page: 'secretariat', desc: 'Organising team' },
+    { label: 'Resources', page: 'resources', desc: 'Study material and guides' },
+    { label: 'FAQ', page: 'faq', desc: 'Common questions' },
+    { label: 'Contact', page: 'contact', desc: 'Get in touch' },
+    { label: 'Press', page: 'press', desc: 'Media and updates' },
+    { label: 'Registration', page: 'register', desc: 'Sign up for the event' },
+  ];
+
   const testimonials = [
     {
       quote:
@@ -851,7 +863,7 @@ export default function Home({ onNavigate }: HomeProps) {
                     style={{ background: 'var(--green)', boxShadow: '0 0 8px var(--green)' }}
                   />
                   <span className="tag-label" style={{ color: 'var(--green)' }}>
-                    Registration Open · July 31 - Aug 1, 2026
+                    Registration Open till <b>May 15</b> · Conference Dates: <b>July 31 - Aug 1, 2026</b>
                   </span>
                 </>
               )}
@@ -953,6 +965,58 @@ export default function Home({ onNavigate }: HomeProps) {
               <p className="tag-label" style={{ color: 'var(--green)' }}>
                 TGAAMUN 2.0 · July 31 - Aug 1
               </p>
+            </div>
+    
+                {/* ── SITE INDEX ── */}
+                <div className="max-w-5xl mx-auto mb-10 text-left">
+              <div
+                className="p-6 sm:p-8 clip-corner"
+                style={{
+                  background: 'var(--navy-card)',
+                  border: '1px solid rgba(31,158,92,0.16)',
+                  boxShadow: '0 12px 36px rgba(0,0,0,0.28)',
+                }}
+              >
+                <p
+                  className="tag-label mb-2"
+                  style={{ color: 'var(--green)' }}
+                >
+                  SITE INDEX
+                </p>
+                <h3
+                  className="font-display font-bold text-2xl sm:text-3xl mb-2"
+                  style={{ color: 'var(--cream)' }}
+                >
+                  Quick navigation
+                </h3>
+                <p className="text-sm mb-6" style={{ color: 'var(--muted)' }}>
+                  Use this index to jump directly to any page.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {siteIndex.map((item) => (
+                    <button
+                      key={item.page}
+                      onClick={() => onNavigate(item.page)}
+                      className="text-left p-4 transition-all hover:opacity-90"
+                      style={{
+                        background: 'rgba(255,255,255,0.02)',
+                        border: '1px solid rgba(255,255,255,0.06)',
+                      }}
+                    >
+                      <p
+                        className="font-semibold mb-1"
+                        style={{ color: 'var(--cream)' }}
+                      >
+                        {item.label}
+                      </p>
+                      <p className="text-sm" style={{ color: 'var(--muted)' }}>
+                        {item.desc}
+                      </p>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* ── YOUTUBE EMBED ── */}

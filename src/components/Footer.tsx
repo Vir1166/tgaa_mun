@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px flex-1" style={{ background: 'rgba(31,158,92,0.3)' }} />
           <span className="font-display italic text-2xl font-bold" style={{ color: 'var(--green)' }}>
-            TGAA MUN
+            TGAAMUN 2.0
           </span>
           <div className="h-px flex-1" style={{ background: 'rgba(31,158,92,0.3)' }} />
         </div>
@@ -76,7 +76,7 @@ export default function Footer() {
           style={{ borderTop: '1px solid rgba(31,158,92,0.1)' }}
         >
           <p className="tag-label" style={{ color: 'var(--muted)' }}>
-            © 2026 TGAA MUN — All rights reserved
+            © TGAAMUN 2.0 — All rights reserved
           </p>
 
           <p className="tag-label" style={{ color: 'var(--muted)' }}>
