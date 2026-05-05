@@ -57,7 +57,7 @@ export default function Committees() {
     },
     {
       id: '4',
-      name: "United Nations International Children's Emergency Fund",
+      name: "United Nations Children’s Fund",
       shortName: 'UNICEF',
       agenda: 'Education of Children in War Affected Zones.',
       difficulty: 'Junior',
